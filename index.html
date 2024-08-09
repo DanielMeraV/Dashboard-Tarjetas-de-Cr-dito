@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeWallet</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="logo">
+                <img src="/img/wallet.png" alt="SafeWallet Logo">
+                <h1 class="logo">SafeWallet</h1>
+            </div>
+            <h2>Inicio de Sesión</h2>
+            <form action="dashboard.html" method="get">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Ingresa tu correo">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-input">
+                        <input type="password" id="password" placeholder="Ingresa tu contraseña">
+                        <span class="eye-icon">👁️</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+            </form>
+            <p class="signup-link">¿No Tienes una Cuenta? <a href="#">Crear Cuenta</a></p>
+        </div>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

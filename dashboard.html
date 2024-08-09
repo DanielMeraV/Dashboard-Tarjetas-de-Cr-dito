@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeWallet</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="safewallet-logo.png" alt="SafeWallet Logo">
+                <h1>SafeWallet</h1>
+            </div>
+            <ul>
+                <li class="active"><a href="#"><i class="icon-dashboard"></i> Dashboard</a></li>
+                <li><a href="#"><i class="icon-transactions"></i> Transactions</a></li>
+                <li><a href="#"><i class="icon-accounts"></i> Accounts</a></li>
+                <li><a href="#"><i class="icon-investments"></i> Investments</a></li>
+                <li><a href="#"><i class="icon-settings"></i> Settings</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h2>Overview</h2>
+                <div class="user-info">
+                    <img src="user-avatar.png" alt="User Avatar">
+                    <span>John Doe</span>
+                </div>
+            </header>
+            <section class="cards">
+                <div class="card main-card">
+                    <h3>My Cards</h3>
+                    <div class="card-details">
+                        <span class="card-number">**** **** **** 1234</span>
+                        <span class="card-balance">$7,392</span>
+                    </div>
+                    <div class="card-footer">
+                        <span>Card Holder</span>
+                        <span>Valid Thru</span>
+                    </div>
+                </div>
+                <div class="card mini-card">
+                    <span class="card-balance">$5,756</span>
+                    <span class="card-number">**** 1234</span>
+                </div>
+                <div class="card mini-card">
+                    <span class="card-balance">$3,714</span>
+                    <span class="card-number">**** 5678</span>
+                </div>
+            </section>
+            <section class="charts">
+                <div class="chart-container">
+                    <h3>Activities</h3>
+                    <canvas id="activitiesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Estadísticas</h3>
+                    <canvas id="statisticsChart"></canvas>
+                </div>
+            </section>
+            <section class="history">
+                <h3>Historial</h3>
+                <canvas id="historyChart"></canvas>
+            </section>
+        </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
