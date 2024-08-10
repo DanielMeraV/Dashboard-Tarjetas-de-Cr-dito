@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeWallet</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/tarjetas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="body-fullscrean">
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/img/wallet.png" alt="SafeWallet Logo">
+                <h1>SafeWallet</h1>
+            </div>
+            <ul class="menu-options">
+                <li><a href="dashboard.html"><i class="icon-dashboard"></i> 
+                    <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
+                    Dashboard</a></li>
+                <li><a href="transacciones.html"><i class="icon-transactions"></i> 
+                    <img src="/img/transaction.png" alt="Icono transacciones" class="menu-icon">
+                    Transacciones</a></li>
+                <li><a href="cuenta.html"><i class="icon-accounts"></i> 
+                    <img src="/img/account.png" alt="Icono cuenta" class="menu-icon">
+                    Cuenta</a></li>
+                <li class="active"><a href="tarjetas.html"><i class="icon-accounts"></i> 
+                    <img src="/img/credit-card.png" alt="Icono tarjetas" class="menu-icon">
+                    Tarjetas</a></li>
+                <li><a href="#"><i class="icon-investments"></i> 
+                    <img src="/img/services.png" alt="Icono servicios" class="menu-icon">
+                    Servicios</a></li>
+                <li><a href="#"><i class="icon-settings"></i> 
+                    <img src="/img/settings-fill.png" alt="Icono opciones" class="menu-icon">
+                    Opciones</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h2>Tarjetas</h2>
+                <div class="user-info">
+                    <img src="/img/settings-border.png" alt="User Avatar" style="width: 35px; height: 35px;">
+                    <img src="/img/user.png" alt="User Avatar" style="width: 50px; height: 50px;">
+                </div>
+            </header>
+            
+            <section class="card-section">
+                <div class="card-list">
+                  <h3>Card List</h3>
+                  <div class="card-item">
+                    <div class="card-icon blue"></div>
+                    <div class="card-details">
+                      <div><strong>Card Type</strong><span>Secondary</span></div>
+                      <div><strong>Bank</strong><span>DBL Bank</span></div>
+                      <div><strong>Card Number</strong><span>**** **** 5600</span></div>
+                      <div><strong>Namain Card</strong><span>William</span></div>
+                    </div>
+                    <a href="#" class="view-details">View Details</a>
+                  </div>
+                  <div class="card-item">
+                    <div class="card-icon pink"></div>
+                    <div class="card-details">
+                      <div><strong>Card Type</strong><span>Secondary</span></div>
+                      <div><strong>Bank</strong><span>BRC Bank</span></div>
+                      <div><strong>Card Number</strong><span>**** **** 4300</span></div>
+                      <div><strong>Namain Card</strong><span>Michel</span></div>
+                    </div>
+                    <a href="#" class="view-details">View Details</a>
+                  </div>
+                  <div class="card-item">
+                    <div class="card-icon yellow"></div>
+                    <div class="card-details">
+                      <div><strong>Card Type</strong><span>Secondary</span></div>
+                      <div><strong>Bank</strong><span>ABM Bank</span></div>
+                      <div><strong>Card Number</strong><span>**** **** 7360</span></div>
+                      <div><strong>Namain Card</strong><span>Edward</span></div>
+                    </div>
+                    <a href="#" class="view-details">View Details</a>
+                  </div>
+                  <!-- Repeat for other cards -->
+                </div>
+                
+                <div class="card-statistics">
+                  <h3>Card Expense Statistics</h3>
+                  <div id="expenseChart"></div>
+                  <div class="chart-legend">
+                    <div class="legend-item"><span class="color-dot blue"></span>DBL Bank</div>
+                    <div class="legend-item"><span class="color-dot pink"></span>BRC Bank</div>
+                    <div class="legend-item"><span class="color-dot teal"></span>ABM Bank</div>
+                    <div class="legend-item"><span class="color-dot orange"></span>MCP Bank</div>
+                  </div>
+                </div>
+              </section>
+
+        </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

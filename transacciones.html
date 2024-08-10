@@ -6,6 +6,7 @@
     <title>SafeWallet</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/transacciones.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="body-fullscrean">
@@ -16,10 +17,10 @@
                 <h1>SafeWallet</h1>
             </div>
             <ul class="menu-options">
-                <li class="active"><a href="dashboard.html"><i class="icon-dashboard"></i> 
+                <li><a href="dashboard.html "><i class="icon-dashboard"></i> 
                     <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
                     Dashboard</a></li>
-                <li><a href="transacciones.html"><i class="icon-transactions"></i> 
+                <li class="active"><a href="transacciones.html"><i class="icon-transactions"></i> 
                     <img src="/img/transaction.png" alt="Icono transacciones" class="menu-icon">
                     Transacciones</a></li>
                 <li><a href="cuenta.html"><i class="icon-accounts"></i> 
@@ -38,7 +39,7 @@
         </nav>
         <main class="content">
             <header>
-                <h2>Dashboard</h2>
+                <h2>Transacciones</h2>
                 <div class="user-info">
                     <img src="/img/settings-border.png" alt="User Avatar" style="width: 35px; height: 35px;">
                     <img src="/img/user.png" alt="User Avatar" style="width: 50px; height: 50px;">
@@ -96,24 +97,65 @@
                   </div>
                   
             </section>
-            <section class="charts">
-                <div class="charts-item">
-                    <h3>Actividad</h3>
-                    <div class="chart-container">
-                        <canvas id="activitiesChart"></canvas>
-                    </div>
-                </div>
-                <div class="charts-item">
-                    <h3>Estadísticas</h3>
-                    <div class="chart-container">
-                        <canvas id="statisticsChart"></canvas>
-                    </div>
-                </div>
-            </section>
-            <h3>Historial</h3>
-            <section class="history">
-                <canvas id="historyChart"></canvas>
-            </section>
+
+            <h3>Transacciones Recientes</h3>
+            <section class="recent-transactions">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Motivo</th>
+                      <th>ID Transacción</th>
+                      <th>Tipo</th>
+                      <th>Número Tarjeta</th>
+                      <th>Fecha</th>
+                      <th>Monto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="icon-up"></span>Spotify Subscription</td>
+                      <td>#12548796</td>
+                      <td>Shopping</td>
+                      <td>1234 ****</td>
+                      <td>28 Jan, 12.30 AM</td>
+                      <td class="amount negative">-$2,500</td>
+                    </tr>
+                    <tr>
+                      <td><span class="icon-down"></span>Freepik Sales</td>
+                      <td>#12548796</td>
+                      <td>Transfer</td>
+                      <td>1234 ****</td>
+                      <td>25 Jan, 10.40 PM</td>
+                      <td class="amount positive">+$750</td>
+                    </tr>
+                    <tr>
+                      <td><span class="icon-up"></span>Mobile Service</td>
+                      <td>#12548796</td>
+                      <td>Service</td>
+                      <td>1234 ****</td>
+                      <td>20 Jan, 10.40 PM</td>
+                      <td class="amount negative">-$150</td>
+                    </tr>
+                    <tr>
+                      <td><span class="icon-up"></span>Wilson</td>
+                      <td>#12548796</td>
+                      <td>Transfer</td>
+                      <td>1234 ****</td>
+                      <td>15 Jan, 03.29 PM</td>
+                      <td class="amount negative">-$1050</td>
+                    </tr>
+                    <tr>
+                      <td><span class="icon-down"></span>Emilly</td>
+                      <td>#12548796</td>
+                      <td>Transfer</td>
+                      <td>1234 ****</td>
+                      <td>14 Jan, 10.40 PM</td>
+                      <td class="amount positive">+$840</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+
         </main>
     </div>
     <script src="/js/scripts.js"></script>

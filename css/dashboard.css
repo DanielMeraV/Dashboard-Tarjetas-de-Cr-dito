@@ -1,0 +1,274 @@
+/* Importa la fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/* Define una variable*/
+:root {
+    --fuente-logo: 'Montserrat', sans-serif;
+    --fuente-principal: 'Inter', sans-serif;
+
+    --color-logo: #343C6A;
+    --color-background: #3050cc;
+    --color-dark-blue: #1976d2;
+    --color-light-blue: #2196f3;
+    --color-blue-background: #d1eaff;
+    --color-white: #fff;
+    --color-dark-white: #ddd;
+    --color-light-background: #f0f0f0;
+    --color-light-background-2: #F5F7FA;
+    --color-black: #000;
+    --color-grey: #333;
+    --color-light-grey: #666;
+}
+
+.body-fullscrean {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    display: block !important;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Dashboard styles */
+.dashboard {
+    display: flex;
+    background-color: var(--color-light-background-2);
+    font-family: var(--fuente-principal);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--color-white);
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--color-light-grey);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .active a {
+    color: var(--color-light-blue);
+    font-weight: bold;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 0px 20px;
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    transform: translateX(-20px);
+    width: 100%;
+    height: 100px;
+    background: var(--color-white);
+    padding: 0px 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.charts-item{
+    width: 100%;
+}
+
+.history {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Placeholder for charts */
+canvas {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-light-background);
+}
+
+
+.logo img{
+    width: 40px;
+    height: 40px;
+}
+
+.menu-icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    filter: invert(50%) sepia(0%) saturate(0%) brightness(66%);
+}
+
+.menu-options li i{
+    margin:30px 20px;
+}
+
+.active{
+    background: var(--color-blue-background);
+    border-radius: 10px;
+}
+
+.active:hover{
+    background: var(--color-blue-background) !important;
+}
+
+.active img{
+    filter: invert(40%) sepia(100%) saturate(727%) hue-rotate(182deg) brightness(95%) contrast(90%) !important;
+}
+
+.menu-options li:hover{
+    background: var(--color-light-background);
+    border-radius: 10px;
+}
+
+.credit-card {
+    width: 320px;
+    height: 180px;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .credit-card.main{
+    background: linear-gradient(135deg, #4169E1, #0000CD);
+    color: var(--color-white);
+  }
+
+  .credit-card.aditional{
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .main h2{
+    color: var(--color-white);
+  }
+  
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .balance span {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  .balance h2 {
+    font-size: 28px;
+    margin: 5px 0;
+  }
+  
+  .chip {
+    width: 50px;
+    height: 40px;
+  }
+  
+  .card-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .card-holder, .valid-thru {
+    font-size: 12px;
+  }
+  
+  .card-holder span, .valid-thru span {
+    opacity: 0.8;
+  }
+  
+  .card-holder h3, .valid-thru h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: normal;
+  }
+  
+  .card-number {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-number span {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  
+  .card-logo {
+    width: 50px;
+    height: 30px;
+    opacity: 0.8;
+  }
+
+  .chip-main{
+    width: 50px;
+    height: 40px;
+    filter: invert(100%) brightness(100%);
+  }
+
+  .card-logo-main{
+    width: 50px;
+    height: 50px;
+    filter: invert(100%) brightness(100%);
+  }
+
+  .chip-aditional{
+    width: 50px;
+    height: 40px;
+  }
+
+  .card-logo-aditional{
+    width: 50px;
+    height: 50px;
+  }

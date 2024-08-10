@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/* Define una variable*/
+:root {
+    --fuente-logo: 'Montserrat', sans-serif;
+    --fuente-principal: 'Inter', sans-serif;
+
+    --color-logo: #343C6A;
+    --color-background: #3050cc;
+    --color-dark-blue: #1976d2;
+    --color-light-blue: #2196f3;
+    --color-blue-background: #d1eaff;
+    --color-white: #fff;
+    --color-dark-white: #ddd;
+    --color-light-background: #f0f0f0;
+    --color-light-background-2: #F5F7FA;
+    --color-black: #000;
+    --color-grey: #333;
+    --color-light-grey: #666;
+    --color-column-title: #718EBF;
+    --color-red: #f44336;
+    --color-green: #4caf50;
+}
+
+.recent-transactions {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  th {
+    color: var(--color-column-title);
+    font-weight: 600;
+  }
+  
+  td {
+    color: var(--color-grey);
+  }
+  
+  .icon-up, .icon-down {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 10px;
+  }
+  
+  .icon-up {
+    background-color: var(--color-light-background-2);
+    color: var(--color-red);
+  }
+  
+  .icon-down {
+    background-color: var(--color-light-background-2);
+    color: var(--color-green);
+  }
+  
+  .icon-up::before {
+    content: "↑";
+  }
+  
+  .icon-down::before {
+    content: "↓";
+  }
+  
+  .amount {
+    font-weight: 600;
+  }
+  
+  .amount.positive {
+    color: var(--color-green);
+  }
+  
+  .amount.negative {
+    color: var(--color-red);
+  }
