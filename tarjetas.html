@@ -29,7 +29,7 @@
                 <li class="active"><a href="tarjetas.html"><i class="icon-accounts"></i> 
                     <img src="/img/credit-card.png" alt="Icono tarjetas" class="menu-icon">
                     Tarjetas</a></li>
-                <li><a href="#"><i class="icon-investments"></i> 
+                <li><a href="servicios.html"><i class="icon-investments"></i> 
                     <img src="/img/services.png" alt="Icono servicios" class="menu-icon">
                     Servicios</a></li>
                 <li><a href="#"><i class="icon-settings"></i> 
@@ -47,49 +47,60 @@
             </header>
             
             <section class="card-section">
-                <div class="card-list">
-                  <h3>Card List</h3>
+              
+              <div class="card-list">
+                <h3>Lista de Tarjetas</h3>
+                <div>
                   <div class="card-item">
-                    <div class="card-icon blue"></div>
-                    <div class="card-details">
-                      <div><strong>Card Type</strong><span>Secondary</span></div>
-                      <div><strong>Bank</strong><span>DBL Bank</span></div>
-                      <div><strong>Card Number</strong><span>**** **** 5600</span></div>
-                      <div><strong>Namain Card</strong><span>William</span></div>
+                    <div class="card-icon blue">
+                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card blue-filter">
                     </div>
-                    <a href="#" class="view-details">View Details</a>
+                    <div class="card-details">
+                      <div><strong>Tarjeta</strong><span>Principal</span></div>
+                      <div><strong>Tipo</strong><span>Visa</span></div>
+                      <div><strong>Número</strong><span>**** **** 5600</span></div>
+                      <div><strong>Titular</strong><span>William</span></div>
+                    </div>
+                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
                   </div>
                   <div class="card-item">
-                    <div class="card-icon pink"></div>
-                    <div class="card-details">
-                      <div><strong>Card Type</strong><span>Secondary</span></div>
-                      <div><strong>Bank</strong><span>BRC Bank</span></div>
-                      <div><strong>Card Number</strong><span>**** **** 4300</span></div>
-                      <div><strong>Namain Card</strong><span>Michel</span></div>
+                    <div class="card-icon pink">
+                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card pink-filter">
                     </div>
-                    <a href="#" class="view-details">View Details</a>
+                    <div class="card-details">
+                      <div><strong>Tarjeta</strong><span>Familiar</span></div>
+                      <div><strong>Tipo</strong><span>Visa</span></div>
+                      <div><strong>Número</strong><span>**** **** 4300</span></div>
+                      <div><strong>Titular</strong><span>Michel</span></div>
+                    </div>
+                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
                   </div>
                   <div class="card-item">
-                    <div class="card-icon yellow"></div>
-                    <div class="card-details">
-                      <div><strong>Card Type</strong><span>Secondary</span></div>
-                      <div><strong>Bank</strong><span>ABM Bank</span></div>
-                      <div><strong>Card Number</strong><span>**** **** 7360</span></div>
-                      <div><strong>Namain Card</strong><span>Edward</span></div>
+                    <div class="card-icon yellow">
+                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card yellow-filter">
                     </div>
-                    <a href="#" class="view-details">View Details</a>
+                    <div class="card-details">
+                      <div><strong>Tarjeta</strong><span>Familiar</span></div>
+                      <div><strong>Tipo</strong><span>Visa</span></div>
+                      <div><strong>Número</strong><span>**** **** 7360</span></div>
+                      <div><strong>Titular</strong><span>Edward</span></div>
+                    </div>
+                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
                   </div>
                   <!-- Repeat for other cards -->
                 </div>
+              </div>
                 
-                <div class="card-statistics">
-                  <h3>Card Expense Statistics</h3>
-                  <div id="expenseChart"></div>
-                  <div class="chart-legend">
-                    <div class="legend-item"><span class="color-dot blue"></span>DBL Bank</div>
-                    <div class="legend-item"><span class="color-dot pink"></span>BRC Bank</div>
-                    <div class="legend-item"><span class="color-dot teal"></span>ABM Bank</div>
-                    <div class="legend-item"><span class="color-dot orange"></span>MCP Bank</div>
+                <div class="card-expense">
+                  <h3>Estadísticas</h3>
+                  <div class="card-statistics">
+                    <div id="expenseChart"></div>
+                    <div class="chart-legend">
+                      <div class="legend-item"><span class="color-dot blue"></span>DBL Bank</div>
+                      <div class="legend-item"><span class="color-dot pink"></span>BRC Bank</div>
+                      <div class="legend-item"><span class="color-dot teal"></span>ABM Bank</div>
+                      <div class="legend-item"><span class="color-dot orange"></span>MCP Bank</div>
+                    </div>
                   </div>
                 </div>
               </section>

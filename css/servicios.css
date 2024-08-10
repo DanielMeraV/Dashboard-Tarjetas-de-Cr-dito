@@ -26,25 +26,13 @@
     --color-pink-background: #fce4ec;
     --color-yellow-background: #fff8e1;
 }
-
-.card-section {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: space-between;
-  }
-
-  .card-expense{
-    width: 30%;
-  }
   
-  .card-list {
-    flex: 2;
+  .discount-list {
     border-radius: 10px;
-    padding: 0px 20px;
+    padding: 20px;
   }
   
-  .card-item {
+  .discount-item {
     display: flex;
     align-items: center;
     padding: 15px;
@@ -54,89 +42,49 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .card-icon {
+  .icon {
     width: 40px;
     height: 40px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 15px;
   }
 
-  .icon-credit-card{
-    margin: 5px;
+  .icon img{
     width: 30px;
+    height: auto;
   }
   
-  .card-icon.blue { background-color: var(--color-blue-background); }
-  .card-icon.pink { background-color: #fce4ec; }
-  .card-icon.yellow { background-color: #fff8e1; }
-
+  .icon.pink { background-color: var(--color-pink-background);}
+  .icon.yellow { background-color: var(--color-yellow-background);}
+  .icon.blue { background-color: var(--color-blue-background);}
+  
   .blue-filter{filter: invert(70%) sepia(20%) saturate(417%) hue-rotate(179deg) brightness(104%) contrast(97%);}
   .pink-filter{filter: invert(70%) sepia(27%) saturate(245%) hue-rotate(292deg) brightness(101%) contrast(88%);}
   .yellow-filter{filter: invert(85%) sepia(42%) saturate(565%) hue-rotate(351deg) brightness(102%) contrast(91%);}
-  
-  .card-details {
+
+  .details {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
   }
   
-  .card-details div {
+  .details div {
     display: flex;
     flex-direction: column;
   }
   
-  .card-details strong {
+  .details strong {
     font-size: 12px;
     color: var(--color-light-grey);
+    margin-bottom: 5px;
   }
   
-  .card-details span {
+  .details span {
     font-size: 14px;
     color: var(--color-grey);
   }
   
-  .view-details {
-    color: var(--color-light-blue);
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .card-statistics {
-    flex: 1;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  #expenseChart {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .chart-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .legend-item {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    color: var(--color-light-grey);
-  }
-  
-  .color-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .color-dot.blue { background-color: #2196f3; }
-  .color-dot.pink { background-color: #e91e63; }
-  .color-dot.teal { background-color: #00bcd4; }
-  .color-dot.orange { background-color: #ff9800; }
