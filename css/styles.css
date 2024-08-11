@@ -36,7 +36,7 @@
 
 /* General styles */
 body {
-    font-family: var(--fuente-principal);
+    font-family: var(--fuente-principal) !important;
     margin: 0;
     padding: 0;
     background-color: var(--color-background);
@@ -137,4 +137,26 @@ input[type="nombre"] {
 
 .signup-link a:hover {
     text-decoration: underline;
+}
+
+
+.bottom-button {
+    margin-top: 120%;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--color-light-blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-dark-blue);
 }

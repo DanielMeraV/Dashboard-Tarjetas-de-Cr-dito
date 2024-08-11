@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeWallet</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/opciones.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="body-fullscrean">
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/img/wallet.png" alt="SafeWallet Logo">
+                <h1>SafeWallet</h1>
+            </div>
+            <ul class="menu-options">
+                <li><a href="dashboard.html"><i class="icon-dashboard"></i> 
+                    <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
+                    Dashboard</a></li>
+                <li><a href="transacciones.html"><i class="icon-transactions"></i> 
+                    <img src="/img/transaction.png" alt="Icono transacciones" class="menu-icon">
+                    Transacciones</a></li>
+                <li><a href="cuenta.html"><i class="icon-accounts"></i> 
+                    <img src="/img/account.png" alt="Icono cuenta" class="menu-icon">
+                    Cuenta</a></li>
+                <li><a href="tarjetas.html"><i class="icon-accounts"></i> 
+                    <img src="/img/credit-card.png" alt="Icono tarjetas" class="menu-icon">
+                    Tarjetas</a></li>
+                <li><a href="servicios.html"><i class="icon-investments"></i> 
+                    <img src="/img/services.png" alt="Icono servicios" class="menu-icon">
+                    Servicios</a></li>
+                <li class="active"><a href="opciones.html"><i class="icon-settings"></i> 
+                    <img src="/img/settings-fill.png" alt="Icono opciones" class="menu-icon">
+                    Opciones</a></li>
+            </ul>
+            <div class="bottom-button">
+                <a href="index.html">
+                    <button class="btn-logout">Salir</button>
+                </a>
+              </div>
+        </nav>
+        <main class="content">
+            <header>
+                <h2>Opciones</h2>
+                <div class="user-info">
+                    <img src="/img/settings-border.png" alt="User Avatar" style="width: 35px; height: 35px;">
+                    <img src="/img/user.png" alt="User Avatar" style="width: 50px; height: 50px;">
+                </div>
+            </header>
+            
+            <section class="csv-upload">
+                <h3 class="op-header">Ingreso de Archivos CSV</h3>
+                <div class="upload-form">
+                  <div class="form-row">
+                    <label for="clientes">Clientes</label>
+                    <div class="input-group">
+                      <input type="file" id="clientes" accept=".csv" class="file-input">
+                      <label for="clientes" class="file-label">Seleccione o arrastre el CSV para clientes</label>
+                      <button class="btn-upload" onclick="document.getElementById('clientes').click();">Seleccionar archivo</button>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="tarjetas-principales">Tarjetas Principales</label>
+                    <div class="input-group">
+                      <input type="file" id="tarjetas-principales" accept=".csv" class="file-input">
+                      <label for="tarjetas-principales" class="file-label">Seleccione o arrastre el CSV para tarjetas principales</label>
+                      <button class="btn-upload" onclick="document.getElementById('tarjetas-principales').click();">Seleccionar archivo</button>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="tarjetas-adicionales">Tarjetas Adicionales</label>
+                    <div class="input-group">
+                      <input type="file" id="tarjetas-adicionales" accept=".csv" class="file-input">
+                      <label for="tarjetas-adicionales" class="file-label">Seleccione o arrastre el CSV para tarjetas adicionales</label>
+                      <button class="btn-upload" onclick="document.getElementById('tarjetas-adicionales').click();">Seleccionar archivo</button>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="historial-crediticio">Historial Crediticio</label>
+                    <div class="input-group">
+                      <input type="file" id="historial-crediticio" accept=".csv" class="file-input">
+                      <label for="historial-crediticio" class="file-label">Seleccione o arrastre el CSV para historial crediticio</label>
+                      <button class="btn-upload" onclick="document.getElementById('historial-crediticio').click();">Seleccionar archivo</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+        </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
