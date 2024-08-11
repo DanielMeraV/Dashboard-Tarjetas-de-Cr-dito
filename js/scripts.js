@@ -159,7 +159,7 @@ window.onload = function() {
 
 // Cargar automáticamente los csv al inicio
 function loadDefaultCSVs() {
-    const csvFolder = '/csv/';  // Ruta relativa a la carpeta CSV
+    const csvFolder = 'csv/';  // Ruta relativa a la carpeta CSV
     const csvFiles = {
         'clientes': 'clientes.csv',
         'tarjetas-principales': 'tarjetas_principales.csv',
