@@ -92,6 +92,11 @@
             const transactions = JSON.parse(localStorage.getItem('historial-crediticio'));
             const container = document.getElementById('card-container');
 
+            console.log('Tarjetas Principales:', tarjetasPrincipales);
+            console.log('Tarjetas Adicionales:', tarjetasAdicionales);
+            console.log('Cliente Actual:', currentClient);
+            console.log('Transacciones:', transactions);
+
             if (currentClient) {
                 const coloresPrincipales = ['blue', 'pink', 'yellow'];
                 const coloresAdicionales = ['pink', 'yellow', 'blue'];
