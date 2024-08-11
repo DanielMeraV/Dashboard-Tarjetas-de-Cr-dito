@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeWallet</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,23 +15,50 @@
                 <h1 class="logo">SafeWallet</h1>
             </div>
             <h2>Inicio de Sesión</h2>
-            <form action="dashboard.html" method="get">
+            <form id="login-form">
                 <div class="form-group">
                     <label for="cedula">Cédula</label>
-                    <input type="cedula" id="cedula" placeholder="Ingresa tu cédula">
+                    <input type="text" id="cedula" placeholder="Ingresa tu cédula">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <div class="password-input">
-                        <input type="nombre" id="nombre" placeholder="Ingresa tu nombre">
-                        <span class="eye-icon">👁️</span>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre">
                     </div>
                 </div>
-                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+                <button type="submit" class="btn-primary" id="login-button">Iniciar Sesión</button>
             </form>
             <p class="signup-link">¿No Tienes una Cuenta? <a href="#">Crear Cuenta</a></p>
         </div>
     </div>
     <script src="/js/scripts.js"></script>
+
+    <script>
+        // Manejar el envío del formulario de inicio de sesión
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario por defecto
+
+            // Obtener los valores de entrada
+            const cedula = document.getElementById('cedula').value.trim();
+            const nombre = document.getElementById('nombre').value.trim();
+
+
+            // Buscar el cliente en el array
+            const client = findClient(cedula, nombre);
+
+            if (client) {
+                // Almacenar la información del cliente en la variable global
+                currentClient = client;
+                localStorage.setItem('currentClient', JSON.stringify(client));
+
+                // Redirigir al usuario a la página del dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                // Mostrar un mensaje de error si el cliente no se encuentra
+                alert('Cédula o nombre incorrectos. Inténtalo de nuevo.');
+            }
+        });
+    </script>
+
 </body>
 </html>

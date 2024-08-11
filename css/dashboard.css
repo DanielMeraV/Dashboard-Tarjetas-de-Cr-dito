@@ -26,7 +26,7 @@
     font-family: var(--fuente-principal);
     margin: 0;
     padding: 0;
-    background-color: var(--color-background);
+    background-color: var(--color-light-background-2);
     display: block !important;
     justify-content: center;
     align-items: center;
@@ -45,6 +45,11 @@
     background-color: var(--color-white);
     padding: 20px;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar ul {
@@ -71,6 +76,9 @@
 .content {
     flex-grow: 1;
     padding: 0px 20px;
+    margin-left: 290px; /* Deja espacio para el sidebar */
+    height: 100%;
+    overflow: hidden; /* Oculta el desbordamiento del contenedor principal */
 }
 
 header {
@@ -116,6 +124,8 @@ header {
     border-radius: 10px;
     padding: 20px;
     flex-grow: 1;
+    min-height: 360px;
+    max-height: 360px;
 }
 
 .charts-item{
@@ -126,13 +136,15 @@ header {
     background-color: var(--color-white);
     border-radius: 10px;
     padding: 20px;
+    max-height: 360px;
+
 }
 
 /* Placeholder for charts */
 canvas {
-    width: 100%;
+    width: auto;
     height: 200px;
-    background-color: var(--color-light-background);
+    background-color: var(--color-white);
 }
 
 
@@ -176,6 +188,11 @@ canvas {
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .credit-card:hover {
+    filter: invert(20%) sepia(0%) saturate(0%) brightness(100%);
   }
 
   .credit-card.main{
@@ -272,3 +289,45 @@ canvas {
     width: 50px;
     height: 50px;
   }
+
+  
+
+  /* Asegura que los contenedores de los gráficos ocupen todo el espacio disponible */
+.chart-container,
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Opcional, para evitar desbordamientos */
+}
+
+.chart-container canvas,
+.history canvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    min-height: 360px;
+    max-height: 360px;
+}
+
+/* Para asegurarte de que el canvas en .charts-item ocupa el 100% del contenedor */
+.charts-item {
+    width: 100%;
+}
+
+/* Ajusta el tamaño del canvas para que se adapte a su contenedor */
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.bottom-button {
+  margin-top: auto; /* Empuja el botón hacia el fondo del sidebar */
+  margin-bottom: 15%;
+}

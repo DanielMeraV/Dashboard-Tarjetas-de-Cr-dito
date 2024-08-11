@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/opciones.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body class="body-fullscrean">
     <div class="dashboard">
@@ -57,32 +58,40 @@
                   <div class="form-row">
                     <label for="clientes">Clientes</label>
                     <div class="input-group">
-                      <input type="file" id="clientes" accept=".csv" class="file-input">
-                      <label for="clientes" class="file-label">Seleccione o arrastre el CSV para clientes</label>
+                      <label for="clientes" class="drop-area" id="clientes-drop">
+                        <input type="file" id="clientes" accept=".csv" class="file-input" onchange="handleCSVUpload(event, 'clientes')">
+                        <p class="drop-text">Seleccione o arrastre el CSV para clientes</p>
+                      </label>
                       <button class="btn-upload" onclick="document.getElementById('clientes').click();">Seleccionar archivo</button>
                     </div>
                   </div>
                   <div class="form-row">
                     <label for="tarjetas-principales">Tarjetas Principales</label>
                     <div class="input-group">
-                      <input type="file" id="tarjetas-principales" accept=".csv" class="file-input">
-                      <label for="tarjetas-principales" class="file-label">Seleccione o arrastre el CSV para tarjetas principales</label>
+                      <label for="tarjetas-principales" class="drop-area" id="tarjetas-principales-drop">
+                        <input type="file" id="tarjetas-principales" accept=".csv" class="file-input" onchange="handleCSVUpload(event, 'tarjetas-principales')">
+                        <p class="drop-text">Seleccione o arrastre el CSV para tarjetas principales</p>
+                      </label>
                       <button class="btn-upload" onclick="document.getElementById('tarjetas-principales').click();">Seleccionar archivo</button>
                     </div>
                   </div>
                   <div class="form-row">
                     <label for="tarjetas-adicionales">Tarjetas Adicionales</label>
                     <div class="input-group">
-                      <input type="file" id="tarjetas-adicionales" accept=".csv" class="file-input">
-                      <label for="tarjetas-adicionales" class="file-label">Seleccione o arrastre el CSV para tarjetas adicionales</label>
+                      <label for="tarjetas-adicionales" class="drop-area" id="tarjetas-adicionales-drop">
+                        <input type="file" id="tarjetas-adicionales" accept=".csv" class="file-input" onchange="handleCSVUpload(event, 'tarjetas-adicionales')">
+                        <p class="drop-text">Seleccione o arrastre el CSV para tarjetas adicionales</p>
+                      </label>
                       <button class="btn-upload" onclick="document.getElementById('tarjetas-adicionales').click();">Seleccionar archivo</button>
                     </div>
                   </div>
                   <div class="form-row">
                     <label for="historial-crediticio">Historial Crediticio</label>
                     <div class="input-group">
-                      <input type="file" id="historial-crediticio" accept=".csv" class="file-input">
-                      <label for="historial-crediticio" class="file-label">Seleccione o arrastre el CSV para historial crediticio</label>
+                      <label for="historial-crediticio" class="drop-area" id="historial-crediticio-drop">
+                        <input type="file" id="historial-crediticio" accept=".csv" class="file-input" onchange="handleCSVUpload(event, 'historial-crediticio')">
+                        <p class="drop-text">Seleccione o arrastre el CSV para historial crediticio</p>
+                      </label>
                       <button class="btn-upload" onclick="document.getElementById('historial-crediticio').click();">Seleccionar archivo</button>
                     </div>
                   </div>

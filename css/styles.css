@@ -86,8 +86,7 @@ label {
     color: var(--color-light-grey);
 }
 
-input[type="cedula"],
-input[type="nombre"] {
+input[type="text"]{
     width: 100%;
     padding: 10px;
     border: 1px solid var(--color-dark-white);
@@ -160,3 +159,5 @@ input[type="nombre"] {
 .btn-logout:hover {
     background-color: var(--color-dark-blue);
 }
+
+

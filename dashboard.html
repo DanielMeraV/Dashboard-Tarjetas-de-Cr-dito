@@ -1,126 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeWallet</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body class="body-fullscrean">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  </head>
+  <body class="body-fullscrean">
     <div class="dashboard">
-        <nav class="sidebar">
-            <div class="logo">
-                <img src="/img/wallet.png" alt="SafeWallet Logo">
-                <h1>SafeWallet</h1>
+      <nav class="sidebar">
+        <div class="logo">
+          <img src="/img/wallet.png" alt="SafeWallet Logo">
+          <h1>SafeWallet</h1>
+        </div>
+        <ul class="menu-options">
+          <li class="active"><a href="dashboard.html"><i
+                class="icon-dashboard"></i><img src="/img/home.png"
+                alt="Icono dashboard" class="menu-icon">Dashboard</a></li>
+          <li><a href="transacciones.html"><i class="icon-transactions"></i><img
+                src="/img/transaction.png" alt="Icono transacciones"
+                class="menu-icon">Transacciones</a></li>
+          <li><a href="cuenta.html"><i class="icon-accounts"></i><img
+                src="/img/account.png" alt="Icono cuenta"
+                class="menu-icon">Cuenta</a></li>
+          <li><a href="tarjetas.html"><i class="icon-accounts"></i><img
+                src="/img/credit-card.png" alt="Icono tarjetas"
+                class="menu-icon">Tarjetas</a></li>
+          <li><a href="servicios.html"><i class="icon-investments"></i><img
+                src="/img/services.png" alt="Icono servicios"
+                class="menu-icon">Servicios</a></li>
+          <li><a href="opciones.html"><i class="icon-settings"></i><img
+                src="/img/settings-fill.png" alt="Icono opciones"
+                class="menu-icon">Opciones</a></li>
+        </ul>
+        <div class="bottom-button">
+          <a href="index.html">
+            <button class="btn-logout">Salir</button>
+          </a>
+        </div>
+      </nav>
+      <main class="content">
+        <header>
+          <h2>Dashboard</h2>
+          <div class="user-info">
+            <img src="/img/settings-border.png" alt="User Avatar"
+              style="width: 35px; height: 35px;">
+            <img src="/img/user.png" alt="User Avatar"
+              style="width: 50px; height: 50px;">
+          </div>
+        </header>
+        <h3>Mis Tarjetas</h3>
+        <section class="cards" id="card-container"></section>
+        <section class="charts">
+          <div class="charts-item">
+            <h3>Actividad</h3>
+            <div class="chart-container">
+              <div class="canvas-container">
+                <canvas id="activitiesChart"></canvas>
             </div>
-            <ul class="menu-options">
-                <li class="active"><a href="dashboard.html"><i class="icon-dashboard"></i> 
-                    <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
-                    Dashboard</a></li>
-                <li><a href="transacciones.html"><i class="icon-transactions"></i> 
-                    <img src="/img/transaction.png" alt="Icono transacciones" class="menu-icon">
-                    Transacciones</a></li>
-                <li><a href="cuenta.html"><i class="icon-accounts"></i> 
-                    <img src="/img/account.png" alt="Icono cuenta" class="menu-icon">
-                    Cuenta</a></li>
-                <li><a href="tarjetas.html"><i class="icon-accounts"></i> 
-                    <img src="/img/credit-card.png" alt="Icono tarjetas" class="menu-icon">
-                    Tarjetas</a></li>
-                <li><a href="servicios.html"><i class="icon-investments"></i> 
-                    <img src="/img/services.png" alt="Icono servicios" class="menu-icon">
-                    Servicios</a></li>
-                <li><a href="opciones.html"><i class="icon-settings"></i> 
-                    <img src="/img/settings-fill.png" alt="Icono opciones" class="menu-icon">
-                    Opciones</a></li>
-            </ul>
-            <div class="bottom-button">
-              <a href="index.html">
-                  <button class="btn-logout">Salir</button>
-              </a>
             </div>
-        </nav>
-        <main class="content">
-            <header>
-                <h2>Dashboard</h2>
-                <div class="user-info">
-                    <img src="/img/settings-border.png" alt="User Avatar" style="width: 35px; height: 35px;">
-                    <img src="/img/user.png" alt="User Avatar" style="width: 50px; height: 50px;">
-                </div>
-            </header>
-            <h3>Mis Tarjetas</h3>
-            <section class="cards">
-                
-                <div class="credit-card main">
-                    <div class="card-top">
-                      <div class="balance">
-                        <span>SALDO</span>
-                        <h2 class="monto">$5,756</h2>
-                      </div>
-                      <img src="/img/chip.png" alt="Card chip" class="chip-main">
-                    </div>
-                    <div class="card-info">
-                      <div class="card-holder">
-                        <span>TITULAR</span>
-                        <h3 class="nombre-cliente">Eddy Cusuma</h3>
-                      </div>
-                      <div class="valid-thru">
-                        <span>FECHA EXP</span>
-                        <h3 class="fecha">12/22</h3>
-                      </div>
-                    </div>
-                    <div class="card-number">
-                      <span class="numero-tarjeta">3778 **** **** 1234</span>
-                      <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-main">
-                    </div>
-                  </div>
-
-                  <div class="credit-card aditional">
-                    <div class="card-top">
-                      <div class="balance">
-                        <span>SALDO</span>
-                        <h2 class="monto">$5,756</h2>
-                      </div>
-                      <img src="/img/chip.png" alt="Card chip" class="chip-aditional">
-                    </div>
-                    <div class="card-info">
-                      <div class="card-holder">
-                        <span>TITULAR</span>
-                        <h3 class="nombre-cliente">Eddy Cusuma</h3>
-                      </div>
-                      <div class="valid-thru">
-                        <span>FECHA EXP</span>
-                        <h3 class="fecha">12/22</h3>
-                      </div>
-                    </div>
-                    <div class="card-number">
-                      <span class="numero-tarjeta">3778 **** **** 1234</span>
-                      <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-aditional">
-                    </div>
-                  </div>
-                  
-            </section>
-            <section class="charts">
-                <div class="charts-item">
-                    <h3>Actividad</h3>
-                    <div class="chart-container">
-                        <canvas id="activitiesChart"></canvas>
-                    </div>
-                </div>
-                <div class="charts-item">
-                    <h3>Estadísticas</h3>
-                    <div class="chart-container">
-                        <canvas id="statisticsChart"></canvas>
-                    </div>
-                </div>
-            </section>
-            <h3>Historial</h3>
-            <section class="history">
-                <canvas id="historyChart"></canvas>
-            </section>
-        </main>
+          </div>
+          <div class="charts-item">
+            <h3>Estadísticas</h3>
+            <div class="chart-container">
+              <div class="canvas-container">
+                <canvas id="statisticsChart"></canvas>
+            </div>
+            </div>
+          </div>
+        </section>
+        <h3>Historial</h3>
+        <section class="history">
+          <div class="canvas-container">
+            <canvas id="historyChart"></canvas>
+        </div>
+        </section>
+      </main>
     </div>
     <script src="/js/scripts.js"></script>
-</body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tarjetasPrincipales = JSON.parse(localStorage.getItem('tarjetas-principales'));
+            const tarjetasAdicionales = JSON.parse(localStorage.getItem('tarjetas-adicionales'));
+            const currentClient = JSON.parse(localStorage.getItem('currentClient'));
+            const transactions = JSON.parse(localStorage.getItem('historial-crediticio'));
+            const container = document.getElementById('card-container');
+
+            if (currentClient) {
+                const coloresPrincipales = ['blue', 'pink', 'yellow'];
+                const coloresAdicionales = ['pink', 'yellow', 'blue'];
+                let firstCardNumber = null;
+
+                const activitiesCtx = document.getElementById('activitiesChart').getContext('2d');
+                const statisticsCtx = document.getElementById('statisticsChart').getContext('2d');
+                const historyCtx = document.getElementById('historyChart').getContext('2d');
+
+                function createCardItem(tarjeta, tipo, color) {
+                    const cardItem = document.createElement('div');
+                    cardItem.classList.add('credit-card', tipo.toLowerCase());
+                    cardItem.dataset.tarjeta = tarjeta.Numero; // Identificador único para la tarjeta
+
+                    const cardTop = document.createElement('div');
+                    cardTop.classList.add('card-top');
+                    const balance = document.createElement('div');
+                    balance.classList.add('balance');
+                    balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.Saldo}</h2>`;
+                    const chip = document.createElement('img');
+                    chip.src = '/img/chip.png';
+                    chip.alt = 'Card chip';
+                    chip.classList.add(`chip-${tipo.toLowerCase()}`);
+                    cardTop.appendChild(balance);
+                    cardTop.appendChild(chip);
+
+                    const cardInfo = document.createElement('div');
+                    cardInfo.classList.add('card-info');
+                    cardInfo.innerHTML = `
+                        <div class="card-holder">
+                            <span>TITULAR</span>
+                            <h3 class="nombre-cliente">${currentClient.nombre}</h3>
+                        </div>
+                        <div class="valid-thru">
+                            <span>FECHA EXP</span>
+                            <h3 class="fecha">12/22</h3>
+                        </div>
+                    `;
+
+                    const cardNumber = document.createElement('div');
+                    cardNumber.classList.add('card-number');
+                    cardNumber.innerHTML = `
+                        <span class="numero-tarjeta">${tarjeta.Numero}</span>
+                        <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-${tipo.toLowerCase()}">
+                    `;
+
+                    cardItem.appendChild(cardTop);
+                    cardItem.appendChild(cardInfo);
+                    cardItem.appendChild(cardNumber);
+
+                    cardItem.addEventListener('click', () => {
+                        const tarjetaNumero = tarjeta.Numero;
+                        updateCharts(tarjetaNumero);
+                    });
+
+                    return cardItem;
+                }
+
+                // Agregar tarjetas principales
+                tarjetasPrincipales.forEach((tarjeta, index) => {
+                    if (tarjeta.Cedula === currentClient.cedula) {
+                        const color = coloresPrincipales[index % coloresPrincipales.length];
+                        const cardItem = createCardItem(tarjeta, 'main', color);
+                        container.appendChild(cardItem);
+                    }
+                });
+
+                // Agregar tarjetas adicionales
+                tarjetasAdicionales.forEach((tarjeta, index) => {
+                    if (tarjeta.Cedula === currentClient.cedula) {
+                        const color = coloresAdicionales[index % coloresAdicionales.length];
+                        const cardItem = createCardItem(tarjeta, 'aditional', color);
+                        container.appendChild(cardItem);
+                    }
+                });
+
+                let activitiesChart = new Chart(activitiesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        datasets: [{
+                            label: 'Ingreso',
+                            data: [],
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                        }, {
+                            label: 'Egreso',
+                            data: [],
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                let statisticsChart = new Chart(statisticsCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            data: [],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(153, 102, 255, 0.6)'
+                            ]
+                        }]
+                    }
+                });
+
+                let historyChart = new Chart(historyCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        datasets: [{
+                            label: 'Saldo',
+                            data: [],
+                            backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+
+                function parseDate(dateString) {
+                  const parts = dateString.split("-");
+                  if (parts.length === 3) {
+                      const year = parseInt(parts[0], 10);
+                      const month = parseInt(parts[1], 10) - 1; // Mes en JavaScript es 0-11
+                      const day = parseInt(parts[2], 10);
+                      return new Date(year, month, day);
+                  }
+                  return null; // Fecha inválida
+              }
+
+                function updateCharts(tarjetaNumero) {
+                    const filteredTransactions = transactions.filter(transaction => transaction.Tarjeta === tarjetaNumero);
+
+                   // Ordenar transacciones por fecha
+                   filteredTransactions.sort((a, b) => new Date(a.Fecha) - new Date(b.Fecha));
+
+
+                    // Actualizar actividades
+                    const monthlyIncome = Array(12).fill(0);
+                    const monthlyExpense = Array(12).fill(0);
+
+                    filteredTransactions.forEach(transaction => {
+                        const month = new Date(transaction.Fecha).getMonth();
+                        if (transaction.TipoMovimiento === 'ingreso') {
+                            monthlyIncome[month] += parseFloat(transaction.Monto);
+                        } else if (transaction.TipoMovimiento === 'egreso') {
+                            monthlyExpense[month] += parseFloat(transaction.Monto);
+                        }
+                    });
+
+                    activitiesChart.data.datasets[0].data = monthlyIncome;
+                    activitiesChart.data.datasets[1].data = monthlyExpense;
+                    activitiesChart.update();
+
+                    // Actualizar estadísticas
+                    const transactionCounts = {};
+                    filteredTransactions.forEach(transaction => {
+                        const codigo = transaction.CodigoMovimiento;
+                        transactionCounts[codigo] = (transactionCounts[codigo] || 0) + 1;
+                    });
+
+                    statisticsChart.data.labels = Object.keys(transactionCounts);
+                    statisticsChart.data.datasets[0].data = Object.values(transactionCounts);
+                    statisticsChart.update();
+
+                    // Actualizar historial con el saldo acumulado
+                    
+                    // Actualizar historial con el saldo acumulado
+                    const monthlyBalance = Array(12).fill(null); // Inicializar array para el saldo por mes
+
+                    filteredTransactions.forEach(transaction => {
+                        const month = new Date(transaction.Fecha).getMonth();
+                        monthlyBalance[month] = parseFloat(transaction.Saldo);
+                    });
+
+                    // Asegurar que los meses sin transacciones tengan el saldo del último mes con transacción
+                    for (let i = 1; i < monthlyBalance.length; i++) {
+                        if (monthlyBalance[i] === null && monthlyBalance[i - 1] !== null) {
+                            monthlyBalance[i] = monthlyBalance[i - 1];
+                        }
+                    }
+
+                    // Calcular el saldo antes del primer registro
+                    const firstTransaction = filteredTransactions[0];
+                    const firstTransactionMonth = new Date(firstTransaction.Fecha).getMonth();
+                    const firstTransactionAmount = parseFloat(firstTransaction.Monto);
+                    const firstTransactionType = firstTransaction.TipoMovimiento;
+
+                    let initialBalance;
+                    if (firstTransactionType === 'ingreso') {
+                        initialBalance = monthlyBalance[firstTransactionMonth] - firstTransactionAmount;
+                    } else if (firstTransactionType === 'egreso') {
+                        initialBalance = monthlyBalance[firstTransactionMonth] + firstTransactionAmount;
+                    }
+
+                    // Aplicar el saldo inicial a los meses anteriores al primer registro
+                    for (let i = 0; i < firstTransactionMonth; i++) {
+                        monthlyBalance[i] = initialBalance;
+                    }
+
+                    // Actualizar el gráfico de historial
+                    historyChart.data.datasets[0].data = monthlyBalance;
+                    historyChart.update();
+
+
+                }
+                
+                if (tarjetaNumero) {
+                  updateCharts(tarjetaNumero);
+                } else if (firstCardNumber) {
+                  firstCardNumber = container.firstChild.dataset.tarjeta;
+                  updateCharts(firstCardNumber);
+                }
+            }
+        });
+    </script>
+  </body>
 </html>

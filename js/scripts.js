@@ -1,70 +1,231 @@
-// Funcion para cambiar de pantalla
-function redirigir(pagina) {
-    window.location.href = pagina + '.html';
-}
+// Variables globales para almacenar los datos de cada tabla
+let clientesData = loadData('clientes') || [];
+let tarjetasPrincipalesData = loadData('tarjetas-principales') || [];
+let tarjetasAdicionalesData = loadData('tarjetas-adicionales') || [];
+let historialCrediticioData = loadData('historial-crediticio') || [];
+
+// Variable global para almacenar la información del cliente actual
+let currentClient = null;
+
 /*
-// Activities Chart
-const activitiesCtx = document.getElementById('activitiesChart').getContext('2d');
-new Chart(activitiesCtx, {
-    type: 'bar',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-            label: 'Income',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: 'rgba(75, 192, 192, 0.6)'
-        }, {
-            label: 'Expense',
-            data: [2, 3, 20, 5, 1, 4],
-            backgroundColor: 'rgba(255, 99, 132, 0.6)'
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+console.log(JSON.parse(localStorage.getItem('clientes')));
+console.log(JSON.parse(localStorage.getItem('tarjetas-principales')));
+console.log(JSON.parse(localStorage.getItem('tarjetas-adicionales')));
+console.log(JSON.parse(localStorage.getItem('historial-crediticio')));*/
+
+// Función para guardar datos en localStorage
+function storeData(type, data) {
+    localStorage.setItem(type, JSON.stringify(data));
+}
+
+// Función para cargar datos desde localStorage
+function loadData(type) {
+    return JSON.parse(localStorage.getItem(type));
+}
+
+
+// Función para buscar un cliente por cédula y nombre
+function findClient(cedula, nombre) {
+    nombre = nombre.trim();
+    return clientesData.find(client => client.cedula === parseInt(cedula, 10) && client.nombre.trim() === nombre);
+}
+
+
+// Funcion para leer el csv
+function handleCSVUpload(event, type) {
+    const file = event.target.files[0];
+    if (file) {
+        const expectedFileName = getExpectedFileName(type);
+        
+        if (file.name !== expectedFileName) {
+            alert(`Error: El archivo seleccionado debe ser ${expectedFileName}`);
+            return;
+        }
+        
+        Papa.parse(file, {
+            header: true,
+            dynamicTyping: true,
+            complete: function(results) {
+                const data = results.data;
+                processCSVData(data, type);
             }
+        });
+    }
+}
+
+// Manejar archivo arrastrado y soltado
+function handleFile(file, type) {
+    const expectedFileName = getExpectedFileName(type);
+
+    if (file.name !== expectedFileName) {
+        alert(`Error: El archivo seleccionado debe ser ${expectedFileName}`);
+        return;
+    }
+
+    Papa.parse(file, {
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+            const data = results.data;
+            processCSVData(data, type);
+        }
+    });
+}
+
+function getExpectedFileName(type) {
+    switch(type) {
+        case 'clientes':
+            return 'clientes.csv';
+        case 'tarjetas-principales':
+            return 'tarjetas_principales.csv';
+        case 'tarjetas-adicionales':
+            return 'tarjetas_familiares.csv';
+        case 'historial-crediticio':
+            return 'movimientos.csv';
+        default:
+            return '';
+    }
+}
+
+function processCSVData(data, type) {
+    let processedData = [];
+    
+    switch(type) {
+        case 'clientes':
+            processedData = data.map(row => ({
+                cedula: row['Cedula'],
+                nombre: row['Nombre'],
+                telefono: row['Telefono'],
+                correo: row['Correo']
+            }));
+            clientesData = processedData;
+            storeData('clientes', clientesData);
+            //console.log('Clientes:', clientesData);
+            break;
+
+        case 'tarjetas-principales':
+            processedData = data.map(row => ({
+                cedula: row['Cedula'],
+                Numero: row['Numero'],
+                fecha_emision: row['FechaEmision'],
+                fecha_expiracion: row['FechaExpiracion'],
+                saldo: row['Saldo'],
+                tipo_tarjeta: row['TipoTarjeta']
+            }));
+            tarjetasPrincipalesData = processedData;
+            storeData('tarjetas-principales', tarjetasPrincipalesData);
+            //console.log('T.P:', tarjetasPrincipalesData);
+            break;
+
+        case 'tarjetas-adicionales':
+            processedData = data.map(row => ({
+                cedula: row['Cedula'],
+                Numero: row['Numero'],
+                fecha_emision: row['FechaEmision'],
+                fecha_expiracion: row['FechaExpiracion'],
+                saldo: row['Saldo'],
+                tipo_tarjeta: row['TipoTarjeta']
+            }));
+            tarjetasAdicionalesData = processedData;
+            storeData('tarjetas-adicionales', tarjetasAdicionalesData);
+            //console.log('T.A.:', tarjetasAdicionalesData);
+            break;
+
+        case 'historial-crediticio':
+            processedData = data.map(row => ({
+                tarjeta: row['Tarjeta'],
+                tipo_tarjeta: row['TipoTarjeta'],
+                detalle_tarjeta: row['DetalleTarjeta'],
+                monto: row['Monto'],
+                saldo: row['Saldo'],
+                fecha: row['Fecha'],
+                tipo_movimiento: row['TipoMovimiento'],
+                codigo_movimiento: row['CodigoMovimiento'],
+                descripcion: row['Descripcion']
+            }));
+            historialCrediticioData = processedData;
+            storeData('historial-crediticio', historialCrediticioData);
+            //console.log('H.C.:', historialCrediticioData);
+            break;
+    }
+}
+
+
+// Llamada a la función de carga al iniciar la página
+window.onload = function() {
+    setupDragAndDrop();
+    loadDefaultCSVs();
+};
+
+// Cargar automáticamente los csv al inicio
+function loadDefaultCSVs() {
+    const csvFolder = '/csv/';  // Ruta relativa a la carpeta CSV
+    const csvFiles = {
+        'clientes': 'clientes.csv',
+        'tarjetas-principales': 'tarjetas_principales.csv',
+        'tarjetas-adicionales': 'tarjetas_familiares.csv',
+        'historial-crediticio': 'movimientos.csv'
+    };
+
+    if (clientesData.length === 0 && 
+        tarjetasPrincipalesData.length === 0 && 
+        tarjetasAdicionalesData.length === 0 && 
+        historialCrediticioData.length === 0) {
+        for (let type in csvFiles) {
+            fetchCSV(csvFolder + csvFiles[type], type);
         }
     }
-});
+}
 
-// Statistics Chart
-const statisticsCtx = document.getElementById('statisticsChart').getContext('2d');
-new Chart(statisticsCtx, {
-    type: 'pie',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
-        datasets: [{
-            data: [12, 19, 3, 5, 2],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)'
-            ]
-        }]
-    }
-});
-
-// History Chart
-const historyCtx = document.getElementById('historyChart').getContext('2d');
-new Chart(historyCtx, {
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-            label: 'Balance',
-            data: [12, 19, 3, 5, 2, 3],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            tension: 0.1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+function fetchCSV(filePath, type) {
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error al cargar el archivo: ${filePath}`);
             }
-        }
-    }
-});*/
+            return response.text();
+        })
+        .then(csvText => {
+            Papa.parse(csvText, {
+                header: true,
+                dynamicTyping: true,
+                complete: function(results) {
+                    const data = results.data;
+                    processCSVData(data, type);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+
+// Función para manejar el arrastre de archivos
+function setupDragAndDrop() {
+    const dropAreas = document.querySelectorAll('.drop-area');
+    dropAreas.forEach(area => {
+        area.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            area.classList.add('dragover');
+        });
+
+        area.addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            area.classList.remove('dragover');
+        });
+
+        area.addEventListener('drop', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            area.classList.remove('dragover');
+            const file = event.dataTransfer.files[0];
+            const id = area.getAttribute('for');
+            handleFile(file, id);
+        });
+    });
+}
+
+

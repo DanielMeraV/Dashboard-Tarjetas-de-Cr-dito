@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/tarjetas.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body class="body-fullscrean">
     <div class="dashboard">
@@ -55,44 +56,8 @@
               
               <div class="card-list">
                 <h3>Lista de Tarjetas</h3>
-                <div>
-                  <div class="card-item">
-                    <div class="card-icon blue">
-                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card blue-filter">
-                    </div>
-                    <div class="card-details">
-                      <div><strong>Tarjeta</strong><span>Principal</span></div>
-                      <div><strong>Tipo</strong><span>Visa</span></div>
-                      <div><strong>Número</strong><span>**** **** 5600</span></div>
-                      <div><strong>Titular</strong><span>William</span></div>
-                    </div>
-                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
-                  </div>
-                  <div class="card-item">
-                    <div class="card-icon pink">
-                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card pink-filter">
-                    </div>
-                    <div class="card-details">
-                      <div><strong>Tarjeta</strong><span>Familiar</span></div>
-                      <div><strong>Tipo</strong><span>Visa</span></div>
-                      <div><strong>Número</strong><span>**** **** 4300</span></div>
-                      <div><strong>Titular</strong><span>Michel</span></div>
-                    </div>
-                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
-                  </div>
-                  <div class="card-item">
-                    <div class="card-icon yellow">
-                      <img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card yellow-filter">
-                    </div>
-                    <div class="card-details">
-                      <div><strong>Tarjeta</strong><span>Familiar</span></div>
-                      <div><strong>Tipo</strong><span>Visa</span></div>
-                      <div><strong>Número</strong><span>**** **** 7360</span></div>
-                      <div><strong>Titular</strong><span>Edward</span></div>
-                    </div>
-                    <a href="transacciones.html" class="view-details">Ver Detalles</a>
-                  </div>
-                  <!-- Repeat for other cards -->
+                <div id="card-container" class="card-list">
+                  
                 </div>
               </div>
                 
@@ -113,5 +78,70 @@
         </main>
     </div>
     <script src="/js/scripts.js"></script>
+    <script>
+      tarjetasPrincipales = JSON.parse(localStorage.getItem('tarjetas-principales'));
+      tarjetasAdicionales = JSON.parse(localStorage.getItem('tarjetas-adicionales'));
+      currentClient = JSON.parse(localStorage.getItem('currentClient'));
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+          if (currentClient) {
+              const container = document.getElementById('card-container');
+              // Agregar tarjetas principales
+              tarjetasPrincipales.forEach((tarjeta, index) => {
+                colores = ['blue', 'pink', 'yellow'];
+                color = colores[index % colores.length];
+
+                  if (tarjeta.Cedula === currentClient.cedula) {
+                      const cardItem = createCardItem(tarjeta, 'Principal', color);
+                      container.appendChild(cardItem);
+                  }
+              });
+
+              // Agregar tarjetas adicionales
+              tarjetasAdicionales.forEach((tarjeta, index) => {
+                colores = ['pink', 'yellow', 'blue'];
+                color = colores[index % colores.length];
+                
+                  if (tarjeta.Cedula === currentClient.cedula) {
+                      const cardItem = createCardItem(tarjeta, 'Adicional', color);
+                      container.appendChild(cardItem);
+                  }
+              });
+          } else {
+              console.error('No se encontró información del cliente.');
+          }
+      });
+
+      function createCardItem(tarjeta, tipo, color) {      
+    const cardItem = document.createElement('div');
+    cardItem.classList.add('card-item');
+
+    const cardIcon = document.createElement('div');
+    cardIcon.classList.add('card-icon');
+    cardIcon.classList.add(color);
+    cardIcon.innerHTML = '<img src="/img/credit-card.png" alt="Icono tarjeta de crédito" class="icon-credit-card">';
+    cardItem.appendChild(cardIcon);
+
+    const cardDetails = document.createElement('div');
+    cardDetails.classList.add('card-details');
+    cardDetails.innerHTML = `
+        <div><strong>Tarjeta</strong><span>${tipo}</span></div>
+        <div><strong>Tipo</strong><span>${tarjeta.Tipo}</span></div>
+        <div><strong>Número</strong><span>${tarjeta.Numero}</span></div>
+        <div><strong>Titular</strong><span>${currentClient.nombre}</span></div>
+    `;
+    cardItem.appendChild(cardDetails);
+
+    const viewDetails = document.createElement('a');
+    viewDetails.href = `transacciones.html?tarjeta=${tarjeta.Numero}`; // Cambiado a comillas invertidas
+    viewDetails.classList.add('view-details');
+    viewDetails.textContent = 'Ver Detalles';
+    cardItem.appendChild(viewDetails);
+
+    return cardItem;
+}
+  </script>
+
 </body>
 </html>

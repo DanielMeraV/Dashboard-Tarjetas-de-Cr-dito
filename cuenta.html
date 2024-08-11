@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/cuenta.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body class="body-fullscrean">
     <div class="dashboard">
@@ -58,19 +59,19 @@
                 <div class="profile-details">
                   <div class="profile-field">
                     <label>Cédula</label>
-                    <p>1723188296</p>
+                    <p id="cedula-field"></p>
                   </div>
                   <div class="profile-field">
                     <label>Nombre</label>
-                    <p>Daniel Alexander Mera Villacres</p>
+                    <p id="nombre-field"></p>
                   </div>
                   <div class="profile-field">
                     <label>Teléfono</label>
-                    <p>0999284473</p>
+                    <p id="telefono-field"></p>
                   </div>
                   <div class="profile-field">
                     <label>Correo</label>
-                    <p>daniel.mera@epn.edu.ec</p>
+                    <p id="correo-field"></p>
                   </div>
                 </div>
               </section>
@@ -78,5 +79,23 @@
         </main>
     </div>
     <script src="/js/scripts.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cargar currentClient desde localStorage
+            const client = JSON.parse(localStorage.getItem('currentClient'));
+            
+            if (client) {
+                // Actualizar los campos del perfil
+                document.getElementById('cedula-field').textContent = client.cedula;
+                document.getElementById('nombre-field').textContent = client.nombre;
+                document.getElementById('telefono-field').textContent = client.telefono;
+                document.getElementById('correo-field').textContent = client.correo;
+            } else {
+                // Manejar el caso en el que no se encuentra currentClient
+                alert('No se encontraron datos del cliente.');
+            }
+        });
+    </script>
 </body>
 </html>

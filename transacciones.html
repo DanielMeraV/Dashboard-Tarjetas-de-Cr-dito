@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeWallet</title>
@@ -8,161 +8,210 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/transacciones.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body class="body-fullscrean">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  </head>
+  <body class="body-fullscrean">
     <div class="dashboard">
-        <nav class="sidebar">
-            <div class="logo">
-                <img src="/img/wallet.png" alt="SafeWallet Logo">
-                <h1>SafeWallet</h1>
-            </div>
-            <ul class="menu-options">
-                <li><a href="dashboard.html "><i class="icon-dashboard"></i> 
-                    <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
-                    Dashboard</a></li>
-                <li class="active"><a href="transacciones.html"><i class="icon-transactions"></i> 
-                    <img src="/img/transaction.png" alt="Icono transacciones" class="menu-icon">
-                    Transacciones</a></li>
-                <li><a href="cuenta.html"><i class="icon-accounts"></i> 
-                    <img src="/img/account.png" alt="Icono cuenta" class="menu-icon">
-                    Cuenta</a></li>
-                <li><a href="tarjetas.html"><i class="icon-accounts"></i> 
-                    <img src="/img/credit-card.png" alt="Icono tarjetas" class="menu-icon">
-                    Tarjetas</a></li>
-                <li><a href="servicios.html"><i class="icon-investments"></i> 
-                    <img src="/img/services.png" alt="Icono servicios" class="menu-icon">
-                    Servicios</a></li>
-                <li><a href="opciones.html"><i class="icon-settings"></i> 
-                    <img src="/img/settings-fill.png" alt="Icono opciones" class="menu-icon">
-                    Opciones</a></li>
-            </ul>
-            <div class="bottom-button">
-              <a href="index.html">
-                  <button class="btn-logout">Salir</button>
-              </a>
-            </div>
-        </nav>
-        <main class="content">
-            <header>
-                <h2>Transacciones</h2>
-                <div class="user-info">
-                    <img src="/img/settings-border.png" alt="User Avatar" style="width: 35px; height: 35px;">
-                    <img src="/img/user.png" alt="User Avatar" style="width: 50px; height: 50px;">
-                </div>
-            </header>
-            <h3>Mis Tarjetas</h3>
-            <section class="cards">
-                
-                <div class="credit-card main">
-                    <div class="card-top">
-                      <div class="balance">
-                        <span>SALDO</span>
-                        <h2 class="monto">$5,756</h2>
-                      </div>
-                      <img src="/img/chip.png" alt="Card chip" class="chip-main">
-                    </div>
-                    <div class="card-info">
-                      <div class="card-holder">
-                        <span>TITULAR</span>
-                        <h3 class="nombre-cliente">Eddy Cusuma</h3>
-                      </div>
-                      <div class="valid-thru">
-                        <span>FECHA EXP</span>
-                        <h3 class="fecha">12/22</h3>
-                      </div>
-                    </div>
-                    <div class="card-number">
-                      <span class="numero-tarjeta">3778 **** **** 1234</span>
-                      <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-main">
-                    </div>
-                  </div>
+      <nav class="sidebar">
+        <div class="logo">
+          <img src="/img/wallet.png" alt="SafeWallet Logo">
+          <h1>SafeWallet</h1>
+        </div>
+        <ul class="menu-options">
+          <li><a href="dashboard.html "><i class="icon-dashboard"></i>
+              <img src="/img/home.png" alt="Icono dashboard" class="menu-icon">
+              Dashboard</a></li>
+          <li class="active"><a href="transacciones.html"><i
+                class="icon-transactions"></i>
+              <img src="/img/transaction.png" alt="Icono transacciones"
+                class="menu-icon">
+              Transacciones</a></li>
+          <li><a href="cuenta.html"><i class="icon-accounts"></i>
+              <img src="/img/account.png" alt="Icono cuenta" class="menu-icon">
+              Cuenta</a></li>
+          <li><a href="tarjetas.html"><i class="icon-accounts"></i>
+              <img src="/img/credit-card.png" alt="Icono tarjetas"
+                class="menu-icon">
+              Tarjetas</a></li>
+          <li><a href="servicios.html"><i class="icon-investments"></i>
+              <img src="/img/services.png" alt="Icono servicios"
+                class="menu-icon">
+              Servicios</a></li>
+          <li><a href="opciones.html"><i class="icon-settings"></i>
+              <img src="/img/settings-fill.png" alt="Icono opciones"
+                class="menu-icon">
+              Opciones</a></li>
+        </ul>
+        <div class="bottom-button">
+          <a href="index.html">
+            <button class="btn-logout">Salir</button>
+          </a>
+        </div>
+      </nav>
+      <main class="content">
+        <header>
+          <h2>Transacciones</h2>
+          <div class="user-info">
+            <img src="/img/settings-border.png" alt="User Avatar"
+              style="width: 35px; height: 35px;">
+            <img src="/img/user.png" alt="User Avatar"
+              style="width: 50px; height: 50px;">
+          </div>
+        </header>
+        <h3>Mis Tarjetas</h3>
+        <section class="cards" id="card-container">
 
-                  <div class="credit-card aditional">
-                    <div class="card-top">
-                      <div class="balance">
-                        <span>SALDO</span>
-                        <h2 class="monto">$5,756</h2>
-                      </div>
-                      <img src="/img/chip.png" alt="Card chip" class="chip-aditional">
-                    </div>
-                    <div class="card-info">
-                      <div class="card-holder">
-                        <span>TITULAR</span>
-                        <h3 class="nombre-cliente">Eddy Cusuma</h3>
-                      </div>
-                      <div class="valid-thru">
-                        <span>FECHA EXP</span>
-                        <h3 class="fecha">12/22</h3>
-                      </div>
-                    </div>
-                    <div class="card-number">
-                      <span class="numero-tarjeta">3778 **** **** 1234</span>
-                      <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-aditional">
-                    </div>
-                  </div>
-                  
-            </section>
+        </section>
 
-            <h3>Transacciones Recientes</h3>
-            <section class="recent-transactions">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Motivo</th>
-                      <th>ID Transacción</th>
-                      <th>Tipo</th>
-                      <th>Número Tarjeta</th>
-                      <th>Fecha</th>
-                      <th>Monto</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="icon-up"></span>Spotify Subscription</td>
-                      <td>#12548796</td>
-                      <td>Shopping</td>
-                      <td>1234 ****</td>
-                      <td>28 Jan, 12.30 AM</td>
-                      <td class="amount negative">-$2,500</td>
-                    </tr>
-                    <tr>
-                      <td><span class="icon-down"></span>Freepik Sales</td>
-                      <td>#12548796</td>
-                      <td>Transfer</td>
-                      <td>1234 ****</td>
-                      <td>25 Jan, 10.40 PM</td>
-                      <td class="amount positive">+$750</td>
-                    </tr>
-                    <tr>
-                      <td><span class="icon-up"></span>Mobile Service</td>
-                      <td>#12548796</td>
-                      <td>Service</td>
-                      <td>1234 ****</td>
-                      <td>20 Jan, 10.40 PM</td>
-                      <td class="amount negative">-$150</td>
-                    </tr>
-                    <tr>
-                      <td><span class="icon-up"></span>Wilson</td>
-                      <td>#12548796</td>
-                      <td>Transfer</td>
-                      <td>1234 ****</td>
-                      <td>15 Jan, 03.29 PM</td>
-                      <td class="amount negative">-$1050</td>
-                    </tr>
-                    <tr>
-                      <td><span class="icon-down"></span>Emilly</td>
-                      <td>#12548796</td>
-                      <td>Transfer</td>
-                      <td>1234 ****</td>
-                      <td>14 Jan, 10.40 PM</td>
-                      <td class="amount positive">+$840</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
+        <h3>Transacciones Recientes</h3>
+        <section class="recent-transactions">
+          <table>
+            <thead>
+              <tr>
+                <th>Motivo</th>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Número Tarjeta</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
 
-        </main>
+            </tbody>
+          </table>
+        </section>
+
+      </main>
     </div>
     <script src="/js/scripts.js"></script>
-</body>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tarjetasPrincipales = JSON.parse(localStorage.getItem('tarjetas-principales'));
+        const tarjetasAdicionales = JSON.parse(localStorage.getItem('tarjetas-adicionales'));
+        const currentClient = JSON.parse(localStorage.getItem('currentClient'));
+        const transactions = JSON.parse(localStorage.getItem('historial-crediticio'));
+        const recentTransactionsTable = document.querySelector('.recent-transactions tbody');
+    
+        if (currentClient) {
+            const container = document.getElementById('card-container');
+            const coloresPrincipales = ['blue', 'pink', 'yellow'];
+            const coloresAdicionales = ['pink', 'yellow', 'blue'];
+            let firstCardNumber = null; // Variable para guardar el número de la primera tarjeta
+    
+            function createCardItem(tarjeta, tipo, color) {
+                const cardItem = document.createElement('div');
+                cardItem.classList.add('credit-card', tipo.toLowerCase());
+                cardItem.dataset.tarjeta = tarjeta.Numero; // Identificador único para la tarjeta
+    
+                const cardTop = document.createElement('div');
+                cardTop.classList.add('card-top');
+                const balance = document.createElement('div');
+                balance.classList.add('balance');
+                balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.Saldo}</h2>`;
+                const chip = document.createElement('img');
+                chip.src = '/img/chip.png';
+                chip.alt = 'Card chip';
+                chip.classList.add(`chip-${tipo.toLowerCase()}`);
+                cardTop.appendChild(balance);
+                cardTop.appendChild(chip);
+    
+                const cardInfo = document.createElement('div');
+                cardInfo.classList.add('card-info');
+                cardInfo.innerHTML = `
+                    <div class="card-holder">
+                        <span>TITULAR</span>
+                        <h3 class="nombre-cliente">${currentClient.nombre}</h3>
+                    </div>
+                    <div class="valid-thru">
+                        <span>FECHA EXP</span>
+                        <h3 class="fecha">${tarjeta.FechaExpiracion}</h3>
+                    </div>
+                `;
+    
+                const cardNumber = document.createElement('div');
+                cardNumber.classList.add('card-number');
+                cardNumber.innerHTML = `
+                    <span class="numero-tarjeta">${tarjeta.Numero}</span>
+                    <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-${tipo.toLowerCase()}">
+                `;
+    
+                cardItem.appendChild(cardTop);
+                cardItem.appendChild(cardInfo);
+                cardItem.appendChild(cardNumber);
+    
+                // Establecer la primera tarjeta para mostrar sus transacciones por defecto
+                if (firstCardNumber === null) {
+                    firstCardNumber = tarjeta.Numero;
+                }
+    
+                return cardItem;
+            }
+
+            // Obtener el número de tarjeta del parámetro de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const tarjetaNumero = urlParams.get('tarjeta');
+    
+            function loadTransactions(tarjetaNumero) {
+                 // Convertir tarjetaNumero al formato correcto (por ejemplo, si en transactions es un número, conviértelo a número)
+            const tarjetaNumeroFormatted = isNaN(tarjetaNumero) ? tarjetaNumero : Number(tarjetaNumero);
+            
+            const filteredTransactions = transactions.filter(t => {
+                // Asegúrate de que el formato coincida
+                const tarjeta = isNaN(t.Tarjeta) ? t.Tarjeta : Number(t.Tarjeta);
+                return tarjeta === tarjetaNumeroFormatted;
+            });
+                recentTransactionsTable.innerHTML = ''; // Limpiar tabla
+    
+                filteredTransactions.forEach(t => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><span class="icon-${t.TipoMovimiento === 'ingreso' ? 'up' : 'down'}"></span>${t.Descripcion}</td>
+                        <td>${t.CodigoMovimiento}</td>
+                        <td>${t.TipoMovimiento}</td>
+                        <td>${t.Tarjeta}</td>
+                        <td>${t.Fecha}</td>
+                        <td class="amount ${t.TipoMovimiento === 'ingreso' ? 'positive' : 'negative'}">$${t.Monto}</td>
+                        <td class="amount ${t.Saldo}">$${t.Saldo}</td>
+                    `;
+                    recentTransactionsTable.appendChild(row);
+                });
+            }
+    
+            tarjetasPrincipales.forEach((tarjeta, index) => {
+                if (tarjeta.Cedula === currentClient.cedula) {
+                    const color = coloresPrincipales[index % coloresPrincipales.length];
+                    const cardItem = createCardItem(tarjeta, 'main', color);
+                    cardItem.addEventListener('click', () => loadTransactions(tarjeta.Numero));
+                    container.appendChild(cardItem);
+                }
+            });
+    
+            tarjetasAdicionales.forEach((tarjeta, index) => {
+                if (tarjeta.Cedula === currentClient.cedula) {
+                    const color = coloresAdicionales[index % coloresAdicionales.length];
+                    const cardItem = createCardItem(tarjeta, 'aditional', color);
+                    cardItem.addEventListener('click', () => loadTransactions(tarjeta.Numero));
+                    container.appendChild(cardItem);
+                }
+            });
+    
+            // Mostrar transacciones de la primera tarjeta después de agregar todas las tarjetas
+            if (tarjetaNumero) {
+              loadTransactions(tarjetaNumero);
+          } else if (firstCardNumber) {
+              loadTransactions(firstCardNumber);
+          }
+
+        } else {
+            console.error('No se encontró información del cliente.');
+        }
+    });
+    
+    
+    </script>
+  </body>
 </html>

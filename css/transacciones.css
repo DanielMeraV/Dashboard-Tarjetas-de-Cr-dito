@@ -38,7 +38,7 @@
   }
   
   th, td {
-    padding: 12px 15px;
+    padding: 20px 15px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
   }
@@ -64,12 +64,12 @@
   
   .icon-up {
     background-color: var(--color-light-background-2);
-    color: var(--color-red);
+    color: var(--color-green);
   }
   
   .icon-down {
     background-color: var(--color-light-background-2);
-    color: var(--color-green);
+    color: var(--color-red);
   }
   
   .icon-up::before {
