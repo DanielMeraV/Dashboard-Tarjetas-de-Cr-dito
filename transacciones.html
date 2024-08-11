@@ -150,20 +150,26 @@
     
                 return cardItem;
             }
-
+    
             // Obtener el número de tarjeta del parámetro de la URL
             const urlParams = new URLSearchParams(window.location.search);
             const tarjetaNumero = urlParams.get('tarjeta');
+            console.log('Número de tarjeta desde URL:', tarjetaNumero);
     
-            function loadTransactions(tarjetaNumero) {
-                 // Convertir tarjetaNumero al formato correcto (por ejemplo, si en transactions es un número, conviértelo a número)
-            const tarjetaNumeroFormatted = isNaN(tarjetaNumero) ? tarjetaNumero : Number(tarjetaNumero);
-            
-            const filteredTransactions = transactions.filter(t => {
-                // Asegúrate de que el formato coincida
-                const tarjeta = isNaN(t.Tarjeta) ? t.Tarjeta : Number(t.Tarjeta);
-                return tarjeta === tarjetaNumeroFormatted;
-            });
+            function loadTransactions(tarjetaNumero) {              
+              // Convertir tarjetaNumero al formato correcto (por ejemplo, si en transactions es un número, conviértelo a número)
+              const tarjetaNumeroFormatted = isNaN(tarjetaNumero) ? tarjetaNumero : Number(tarjetaNumero);
+              
+              const filteredTransactions = transactions.filter(t => {
+                  // Asegúrate de que el formato coincida
+                  const tarjeta = isNaN(t.tarjeta) ? t.tarjeta : Number(t.tarjeta);
+                console.log('lista:', tarjeta);
+
+                  return tarjeta === tarjetaNumeroFormatted;
+              });
+                console.log('Cargando transacciones para tarjeta:', tarjetaNumero);
+                console.log('Transacciones filtradas:', filteredTransactions);
+    
                 recentTransactionsTable.innerHTML = ''; // Limpiar tabla
     
                 filteredTransactions.forEach(t => {
@@ -174,8 +180,7 @@
                         <td>${t.TipoMovimiento}</td>
                         <td>${t.Tarjeta}</td>
                         <td>${t.Fecha}</td>
-                        <td class="amount ${t.TipoMovimiento === 'ingreso' ? 'positive' : 'negative'}">$${t.Monto}</td>
-                        <td class="amount ${t.Saldo}">$${t.Saldo}</td>
+                        <td class="amount ${t.TipoMovimiento === 'ingreso' ? 'positive' : 'negative'}">${t.Monto}</td>
                     `;
                     recentTransactionsTable.appendChild(row);
                 });
@@ -201,11 +206,11 @@
     
             // Mostrar transacciones de la primera tarjeta después de agregar todas las tarjetas
             if (tarjetaNumero) {
-              loadTransactions(tarjetaNumero);
-          } else if (firstCardNumber) {
-              loadTransactions(firstCardNumber);
-          }
-
+                loadTransactions(tarjetaNumero);
+            } else if (firstCardNumber) {
+                loadTransactions(firstCardNumber);
+            }
+    
         } else {
             console.error('No se encontró información del cliente.');
         }

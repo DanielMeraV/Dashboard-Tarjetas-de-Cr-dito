@@ -84,6 +84,7 @@
     <script src="/js/scripts.js"></script>
 
     <script>
+      const tarjetaNumero = null;
         document.addEventListener('DOMContentLoaded', () => {
             const tarjetasPrincipales = JSON.parse(localStorage.getItem('tarjetas-principales'));
             const tarjetasAdicionales = JSON.parse(localStorage.getItem('tarjetas-adicionales'));
@@ -126,7 +127,7 @@
                         </div>
                         <div class="valid-thru">
                             <span>FECHA EXP</span>
-                            <h3 class="fecha">12/22</h3>
+                            <h3 class="fecha">${tarjeta.FechaExpiracion}</h3>
                         </div>
                     `;
 

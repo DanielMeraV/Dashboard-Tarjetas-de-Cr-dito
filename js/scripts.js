@@ -7,11 +7,11 @@ let historialCrediticioData = loadData('historial-crediticio') || [];
 // Variable global para almacenar la información del cliente actual
 let currentClient = null;
 
-/*
+
 console.log(JSON.parse(localStorage.getItem('clientes')));
 console.log(JSON.parse(localStorage.getItem('tarjetas-principales')));
 console.log(JSON.parse(localStorage.getItem('tarjetas-adicionales')));
-console.log(JSON.parse(localStorage.getItem('historial-crediticio')));*/
+console.log(JSON.parse(localStorage.getItem('historial-crediticio')));
 
 // Función para guardar datos en localStorage
 function storeData(type, data) {
