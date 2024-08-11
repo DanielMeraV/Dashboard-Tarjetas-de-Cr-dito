@@ -14,27 +14,27 @@
     <div class="dashboard">
       <nav class="sidebar">
         <div class="logo">
-          <img src="/img/wallet.png" alt="SafeWallet Logo">
+          <img src="img/wallet.png" alt="SafeWallet Logo">
           <h1>SafeWallet</h1>
         </div>
         <ul class="menu-options">
           <li class="active"><a href="dashboard.html"><i
-                class="icon-dashboard"></i><img src="/img/home.png"
+                class="icon-dashboard"></i><img src="img/home.png"
                 alt="Icono dashboard" class="menu-icon">Dashboard</a></li>
           <li><a href="transacciones.html"><i class="icon-transactions"></i><img
-                src="/img/transaction.png" alt="Icono transacciones"
+                src="img/transaction.png" alt="Icono transacciones"
                 class="menu-icon">Transacciones</a></li>
           <li><a href="cuenta.html"><i class="icon-accounts"></i><img
-                src="/img/account.png" alt="Icono cuenta"
+                src="img/account.png" alt="Icono cuenta"
                 class="menu-icon">Cuenta</a></li>
           <li><a href="tarjetas.html"><i class="icon-accounts"></i><img
-                src="/img/credit-card.png" alt="Icono tarjetas"
+                src="img/credit-card.png" alt="Icono tarjetas"
                 class="menu-icon">Tarjetas</a></li>
           <li><a href="servicios.html"><i class="icon-investments"></i><img
-                src="/img/services.png" alt="Icono servicios"
+                src="img/services.png" alt="Icono servicios"
                 class="menu-icon">Servicios</a></li>
           <li><a href="opciones.html"><i class="icon-settings"></i><img
-                src="/img/settings-fill.png" alt="Icono opciones"
+                src="img/settings-fill.png" alt="Icono opciones"
                 class="menu-icon">Opciones</a></li>
         </ul>
         <div class="bottom-button">
@@ -47,9 +47,9 @@
         <header>
           <h2>Dashboard</h2>
           <div class="user-info">
-            <img src="/img/settings-border.png" alt="User Avatar"
+            <img src="img/settings-border.png" alt="User Avatar"
               style="width: 35px; height: 35px;">
-            <img src="/img/user.png" alt="User Avatar"
+            <img src="img/user.png" alt="User Avatar"
               style="width: 50px; height: 50px;">
           </div>
         </header>
@@ -111,7 +111,7 @@
                     balance.classList.add('balance');
                     balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.Saldo}</h2>`;
                     const chip = document.createElement('img');
-                    chip.src = '/img/chip.png';
+                    chip.src = 'img/chip.png';
                     chip.alt = 'Card chip';
                     chip.classList.add(`chip-${tipo.toLowerCase()}`);
                     cardTop.appendChild(balance);
@@ -134,7 +134,7 @@
                     cardNumber.classList.add('card-number');
                     cardNumber.innerHTML = `
                         <span class="numero-tarjeta">${tarjeta.Numero}</span>
-                        <img src="/img/visa-circles.png" alt="Card logo" class="card-logo-${tipo.toLowerCase()}">
+                        <img src="img/visa-circles.png" alt="Card logo" class="card-logo-${tipo.toLowerCase()}">
                     `;
 
                     cardItem.appendChild(cardTop);
