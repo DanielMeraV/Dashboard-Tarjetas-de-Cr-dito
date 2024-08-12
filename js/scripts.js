@@ -7,11 +7,11 @@ let historialCrediticioData = loadData('historial-crediticio') || [];
 // Variable global para almacenar la información del cliente actual
 let currentClient = null;
 
-
+/*
 console.log(JSON.parse(localStorage.getItem('clientes')));
 console.log(JSON.parse(localStorage.getItem('tarjetas-principales')));
 console.log(JSON.parse(localStorage.getItem('tarjetas-adicionales')));
-console.log(JSON.parse(localStorage.getItem('historial-crediticio')));
+console.log(JSON.parse(localStorage.getItem('historial-crediticio')));*/
 
 // Función para guardar datos en localStorage
 function storeData(type, data) {
@@ -100,6 +100,7 @@ function processCSVData(data, type) {
             }));
             clientesData = processedData;
             storeData('clientes', clientesData);
+            alert('Se han cargado correctamente los datos del cliente');
             //console.log('Clientes:', clientesData);
             break;
 
@@ -114,6 +115,7 @@ function processCSVData(data, type) {
             }));
             tarjetasPrincipalesData = processedData;
             storeData('tarjetas-principales', tarjetasPrincipalesData);
+            alert('Se han cargado correctamente los datos de las tarjetas principales');
             //console.log('T.P:', tarjetasPrincipalesData);
             break;
 
@@ -128,6 +130,7 @@ function processCSVData(data, type) {
             }));
             tarjetasAdicionalesData = processedData;
             storeData('tarjetas-adicionales', tarjetasAdicionalesData);
+            alert('Se han cargado correctamente los datos de las tarjetas adicionales');
             //console.log('T.A.:', tarjetasAdicionalesData);
             break;
 
@@ -145,6 +148,7 @@ function processCSVData(data, type) {
             }));
             historialCrediticioData = processedData;
             storeData('historial-crediticio', historialCrediticioData);
+            alert('Se han cargado correctamente los datos del historial crediticio');
             //console.log('H.C.:', historialCrediticioData);
             break;
     }

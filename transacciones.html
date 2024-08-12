@@ -161,21 +161,22 @@
             
             const filteredTransactions = transactions.filter(t => {
                 // Asegúrate de que el formato coincida
-                const tarjeta = isNaN(t.Tarjeta) ? t.Tarjeta : Number(t.Tarjeta);
+                const tarjeta = isNaN(t.tarjeta) ? t.tarjeta : Number(t.tarjeta);
                 return tarjeta === tarjetaNumeroFormatted;
             });
+
                 recentTransactionsTable.innerHTML = ''; // Limpiar tabla
     
                 filteredTransactions.forEach(t => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td><span class="icon-${t.TipoMovimiento === 'ingreso' ? 'up' : 'down'}"></span>${t.Descripcion}</td>
-                        <td>${t.CodigoMovimiento}</td>
-                        <td>${t.TipoMovimiento}</td>
-                        <td>${t.Tarjeta}</td>
-                        <td>${t.Fecha}</td>
-                        <td class="amount ${t.TipoMovimiento === 'ingreso' ? 'positive' : 'negative'}">$${t.Monto}</td>
-                        <td class="amount ${t.Saldo}">$${t.Saldo}</td>
+                        <td><span class="icon-${t.tipo_movimiento === 'ingreso' ? 'up' : 'down'}"></span>${t.descripcion}</td>
+                        <td>${t.codigo_movimiento}</td>
+                        <td>${t.tipo_movimiento}</td>
+                        <td>${t.tarjeta}</td>
+                        <td>${t.fecha}</td>
+                        <td class="amount ${t.tipo_movimiento === 'ingreso' ? 'positive' : 'negative'}">$${t.monto}</td>
+                        <td class="amount ${t.saldo}">$${t.saldo}</td>
                     `;
                     recentTransactionsTable.appendChild(row);
                 });

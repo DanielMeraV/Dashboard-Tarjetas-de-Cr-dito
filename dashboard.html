@@ -84,18 +84,13 @@
     <script src="js/scripts.js"></script>
 
     <script>
-        const tarjetaNumero = null;
+        tarjetaNumero = null;
         document.addEventListener('DOMContentLoaded', () => {
             const tarjetasPrincipales = JSON.parse(localStorage.getItem('tarjetas-principales'));
             const tarjetasAdicionales = JSON.parse(localStorage.getItem('tarjetas-adicionales'));
             const currentClient = JSON.parse(localStorage.getItem('currentClient'));
             const transactions = JSON.parse(localStorage.getItem('historial-crediticio'));
             const container = document.getElementById('card-container');
-
-            console.log('Tarjetas Principales:', tarjetasPrincipales);
-            console.log('Tarjetas Adicionales:', tarjetasAdicionales);
-            console.log('Cliente Actual:', currentClient);
-            console.log('Transacciones:', transactions);
 
             if (currentClient) {
                 const coloresPrincipales = ['blue', 'pink', 'yellow'];
@@ -246,7 +241,7 @@
               }
 
                 function updateCharts(tarjetaNumero) {
-                    const filteredTransactions = transactions.filter(transaction => transaction.Tarjeta === tarjetaNumero);
+                    const filteredTransactions = transactions.filter(transaction => transaction.tarjeta === tarjetaNumero);
 
                    // Ordenar transacciones por fecha
                    filteredTransactions.sort((a, b) => new Date(a.Fecha) - new Date(b.Fecha));
@@ -257,11 +252,11 @@
                     const monthlyExpense = Array(12).fill(0);
 
                     filteredTransactions.forEach(transaction => {
-                        const month = new Date(transaction.Fecha).getMonth();
-                        if (transaction.TipoMovimiento === 'ingreso') {
-                            monthlyIncome[month] += parseFloat(transaction.Monto);
-                        } else if (transaction.TipoMovimiento === 'egreso') {
-                            monthlyExpense[month] += parseFloat(transaction.Monto);
+                        const month = new Date(transaction.fecha).getMonth();
+                        if (transaction.tipo_movimiento === 'ingreso') {
+                            monthlyIncome[month] += parseFloat(transaction.monto);
+                        } else if (transaction.tipo_movimiento === 'egreso') {
+                            monthlyExpense[month] += parseFloat(transaction.monto);
                         }
                     });
 
@@ -272,7 +267,7 @@
                     // Actualizar estadísticas
                     const transactionCounts = {};
                     filteredTransactions.forEach(transaction => {
-                        const codigo = transaction.CodigoMovimiento;
+                        const codigo = transaction.codigo_movimiento;
                         transactionCounts[codigo] = (transactionCounts[codigo] || 0) + 1;
                     });
 
@@ -286,8 +281,8 @@
                     const monthlyBalance = Array(12).fill(null); // Inicializar array para el saldo por mes
 
                     filteredTransactions.forEach(transaction => {
-                        const month = new Date(transaction.Fecha).getMonth();
-                        monthlyBalance[month] = parseFloat(transaction.Saldo);
+                        const month = new Date(transaction.fecha).getMonth();
+                        monthlyBalance[month] = parseFloat(transaction.saldo);
                     });
 
                     // Asegurar que los meses sin transacciones tengan el saldo del último mes con transacción
@@ -299,9 +294,9 @@
 
                     // Calcular el saldo antes del primer registro
                     const firstTransaction = filteredTransactions[0];
-                    const firstTransactionMonth = new Date(firstTransaction.Fecha).getMonth();
-                    const firstTransactionAmount = parseFloat(firstTransaction.Monto);
-                    const firstTransactionType = firstTransaction.TipoMovimiento;
+                    const firstTransactionMonth = new Date(firstTransaction.fecha).getMonth();
+                    const firstTransactionAmount = parseFloat(firstTransaction.monto);
+                    const firstTransactionType = firstTransaction.tipo_movimiento;
 
                     let initialBalance;
                     if (firstTransactionType === 'ingreso') {
