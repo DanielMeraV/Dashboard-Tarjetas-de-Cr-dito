@@ -201,7 +201,7 @@ canvas {
   }
 
   .credit-card.aditional{
-    background: var(--color-white);
+    background: linear-gradient(135deg, #fff, var(--color-dark-white));
     color: var(--color-black);
   }
 
