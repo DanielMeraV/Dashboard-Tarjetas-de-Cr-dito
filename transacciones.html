@@ -111,7 +111,7 @@
                 cardTop.classList.add('card-top');
                 const balance = document.createElement('div');
                 balance.classList.add('balance');
-                balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.Saldo}</h2>`;
+                balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.saldo}</h2>`;
                 const chip = document.createElement('img');
                 chip.src = 'img/chip.png';
                 chip.alt = 'Card chip';
@@ -128,7 +128,7 @@
                     </div>
                     <div class="valid-thru">
                         <span>FECHA EXP</span>
-                        <h3 class="fecha">${tarjeta.FechaExpiracion}</h3>
+                        <h3 class="fecha">${tarjeta.fecha_expiracion}</h3>
                     </div>
                 `;
     
@@ -183,7 +183,7 @@
             }
     
             tarjetasPrincipales.forEach((tarjeta, index) => {
-                if (tarjeta.Cedula === currentClient.cedula) {
+                if (tarjeta.cedula === currentClient.cedula) {
                     const color = coloresPrincipales[index % coloresPrincipales.length];
                     const cardItem = createCardItem(tarjeta, 'main', color);
                     cardItem.addEventListener('click', () => loadTransactions(tarjeta.Numero));
@@ -192,7 +192,7 @@
             });
     
             tarjetasAdicionales.forEach((tarjeta, index) => {
-                if (tarjeta.Cedula === currentClient.cedula) {
+                if (tarjeta.cedula === currentClient.cedula) {
                     const color = coloresAdicionales[index % coloresAdicionales.length];
                     const cardItem = createCardItem(tarjeta, 'aditional', color);
                     cardItem.addEventListener('click', () => loadTransactions(tarjeta.Numero));

@@ -183,8 +183,8 @@ canvas {
 }
 
 .credit-card {
-    width: 320px;
-    height: 180px;
+    min-width: 320px;
+    min-height: 180px;
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);

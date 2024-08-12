@@ -92,7 +92,7 @@
                 colores = ['blue', 'pink', 'yellow'];
                 color = colores[index % colores.length];
 
-                  if (tarjeta.Cedula === currentClient.cedula) {
+                  if (tarjeta.cedula === currentClient.cedula) {
                       const cardItem = createCardItem(tarjeta, 'Principal', color);
                       container.appendChild(cardItem);
                   }
@@ -103,7 +103,7 @@
                 colores = ['pink', 'yellow', 'blue'];
                 color = colores[index % colores.length];
                 
-                  if (tarjeta.Cedula === currentClient.cedula) {
+                  if (tarjeta.cedula === currentClient.cedula) {
                       const cardItem = createCardItem(tarjeta, 'Adicional', color);
                       container.appendChild(cardItem);
                   }

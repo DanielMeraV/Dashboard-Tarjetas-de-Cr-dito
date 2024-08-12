@@ -22,40 +22,40 @@ Tarjeta,TipoTarjeta,DetalleTarjeta,Monto,Saldo,Fecha,TipoMovimiento,CodigoMovimi
 34567891,MasterCard,Familiar,147.00,411.00,2024-06-07,egreso,1616,entradas para show
 34567891,MasterCard,Familiar,120.00,531.00,2024-06-11,ingreso,0,regalo de aniversario
 34567892,MasterCard,Familiar,42.50,157.50,2024-07-03,egreso,5353,compra en farmacia
-34567892,MasterCard,Familiar,70.00,227.00,2024-07-08,ingreso,0,devoluciï¿½n de producto
+34567892,MasterCard,Familiar,70.00,227.00,2024-07-08,ingreso,0,devoluci¢n de producto
 34567892,MasterCard,Familiar,78.40,148.60,2024-07-09,egreso,1616,fiesta en casa
 34567892,MasterCard,Familiar,50.00,198.00,2024-07-12,ingreso,0,venta de articulos
 34567893,MasterCard,Familiar,92.00,208.00,2024-06-01,egreso,8787,almuerzo familiar
-34567893,MasterCard,Familiar,50.00,258.00,2024-06-04,ingreso,0,regalo de cumpleaï¿½os
+34567893,MasterCard,Familiar,50.00,258.00,2024-06-04,ingreso,0,regalo de cumplea¤os
 34567893,MasterCard,Familiar,127.50,130.50,2024-06-06,egreso,5353,compra de vitaminas
 34567893,MasterCard,Familiar,80.00,210.00,2024-06-08,ingreso,0,venta de ropa
-34567893,MasterCard,Familiar,98.00,112.00,2024-06-10,egreso,1616,entradas al zoolï¿½gico
+34567893,MasterCard,Familiar,98.00,112.00,2024-06-10,egreso,1616,entradas al zool¢gico
 67890123,MasterCard,Principal,460.00,7540.00,2024-06-10,egreso,8787,compras mensuales
 67890123,MasterCard,Principal,294.00,7246.00,2024-06-12,egreso,1616,concierto en vivo
-67890123,MasterCard,Principal,170.00,7076.00,2024-06-15,egreso,5353,visita al mï¿½dico
+67890123,MasterCard,Principal,170.00,7076.00,2024-06-15,egreso,5353,visita al m‚dico
 67890123,MasterCard,Principal,400.00,7476.00,2024-06-18,ingreso,0,bono por objetivos
 67890124,MasterCard,Familiar,184.00,3316.00,2024-06-05,egreso,8787,salida a restaurante
 67890124,MasterCard,Familiar,300.00,3616.00,2024-06-09,ingreso,0,deposito de ahorro
-67890124,MasterCard,Familiar,100.00,3716.00,2024-06-17,ingreso,0,venta de electrodomï¿½sticos
-67890124,MasterCard,Familiar,127.50,3588.50,2024-06-20,egreso,5353,chequeo mï¿½dico
-67890124,MasterCard,Familiar,250.00,3838.00,2024-06-22,ingreso,0,bonificaciï¿½n anual
+67890124,MasterCard,Familiar,100.00,3716.00,2024-06-17,ingreso,0,venta de electrodom‚sticos
+67890124,MasterCard,Familiar,127.50,3588.50,2024-06-20,egreso,5353,chequeo m‚dico
+67890124,MasterCard,Familiar,250.00,3838.00,2024-06-22,ingreso,0,bonificaci¢n anual
 67890125,MasterCard,Familiar,170.00,830.00,2024-08-07,egreso,5353,chequeo medico
 67890125,MasterCard,Familiar,150.00,980.00,2024-08-11,ingreso,0,ganancia de venta
 67890125,MasterCard,Familiar,230.00,750.00,2024-08-13,egreso,8787,almuerzo en familia
 67890125,MasterCard,Familiar,98.00,652.00, 2024-08-15,egreso,1616,salida al cine
 67890126,MasterCard,Familiar,255.00,245.00,2024-09-04,egreso,5353,compra de medicinas
-67890126,MasterCard,Familiar,200.00,445.00,2024-09-08,ingreso,0,venta de artï¿½culos
-67890126,MasterCard,Familiar,100.00,545.00,2024-09-10,ingreso,0,regalo de cumpleaï¿½os
+67890126,MasterCard,Familiar,200.00,445.00,2024-09-08,ingreso,0,venta de art¡culos
+67890126,MasterCard,Familiar,100.00,545.00,2024-09-10,ingreso,0,regalo de cumplea¤os
 67890126,MasterCard,Familiar,46.00,499.00,2024-09-12,egreso,8787,salida a cafe
 67890126,MasterCard,Familiar,100.00,599.00,2024-09-14,ingreso,0,premio de concurso
 67890127,MasterCard,Familiar,368.00,1632.00,2024-06-06,egreso,8787,cena de aniversario
 67890127,MasterCard,Familiar,200.00,1832.00,2024-06-15,ingreso,0,devolucion de impuestos
-67890127,MasterCard,Familiar,294.00,1538.00,2024-06-20,egreso,1616,entradas a parque temï¿½tico
+67890127,MasterCard,Familiar,294.00,1538.00,2024-06-20,egreso,1616,entradas a parque tem tico
 67890127,MasterCard,Familiar,150.00,1688.00,2024-06-23,ingreso,0,transferencia de familiar
 67890127,MasterCard,Familiar,212.50,1475.50,2024-06-25,egreso,5353,visita al dentista
-67890127,MasterCard,Familiar,100.00,1575.00,2024-06-28,ingreso,0,bonificaciï¿½n especial
+67890127,MasterCard,Familiar,100.00,1575.00,2024-06-28,ingreso,0,bonificaci¢n especial
 78901234,Discover,Principal,255.00,4245.00,2024-07-02,egreso,8686,compras en supermercado
-78901234,Discover,Principal,400.00,3845.00,2024-07-06,egreso,1717,fin de semana de pelï¿½culas
+78901234,Discover,Principal,400.00,3845.00,2024-07-06,egreso,1717,fin de semana de pel¡culas
 78901234,Discover,Principal,200.00,4045.00,2024-07-08,ingreso,0,bonificacion mensual
 78901234,Discover,Principal,350.00,3695.00,2024-07-12,egreso,5454,tratamiento medico
 78901235,Discover,Familiar,85.00,1415.00,2024-06-03,egreso,8686,almuerzo fuera
@@ -65,4 +65,13 @@ Tarjeta,TipoTarjeta,DetalleTarjeta,Monto,Saldo,Fecha,TipoMovimiento,CodigoMovimi
 78901236,Discover,Familiar,140.00,1860.00,2024-08-01,egreso,5454,compra de vitaminas
 78901236,Discover,Familiar,150.00,2010.00,2024-08-04,ingreso,0,venta de gadgets
 78901236,Discover,Familiar,255.00,1755.00,2024-08-06,egreso,8686,cena familiar
-78901236,Discover,Familiar,200.00,1955.00,2024-08-09,ingreso,0,bonificaciï¿½n trimestral
+78901236,Discover,Familiar,200.00,1955.00,2024-08-09,ingreso,0,bonificaci¢n trimestral
+90123456,Visa,Principal,150.00,925.00,2024-08-12,ingreso,0,Regalo
+90123456,Visa,Principal,400.00,525.00,2024-08-15,egreso,5252,Farmacia
+90123456,Visa,Principal,150.00,675.00,2024-08-20,ingreso,0,Venta de jugos
+90123456,Visa,Principal,95.00,580.00,2024-08-21,egreso,1515,cine
+90123456,Visa,Principal,135.00,445.00,2024-08-28,egreso,8989,Cena familiar
+90123457,Visa,Familiar,500.00,938.00,2024-06-21,ingreso,0,loteria
+90123457,Visa,Familiar,100.00,1038.00,2024-06-22,ingreso,0,venta de juguetes
+90123457,Visa,Familiar,237.50,800.50,2024-06-25,egreso,1515,salida con amigos 
+90123457,Visa,Familiar,50.00,850.00,2024-06-28,ingreso,0,venta de jugos

@@ -152,7 +152,7 @@
 
                 // Agregar tarjetas principales
                 tarjetasPrincipales.forEach((tarjeta, index) => {
-                    if (tarjeta.Cedula === currentClient.cedula) {
+                    if (tarjeta.cedula === currentClient.cedula) {
                         const color = coloresPrincipales[index % coloresPrincipales.length];
                         const cardItem = createCardItem(tarjeta, 'main', color);
                         container.appendChild(cardItem);
@@ -161,7 +161,7 @@
 
                 // Agregar tarjetas adicionales
                 tarjetasAdicionales.forEach((tarjeta, index) => {
-                    if (tarjeta.Cedula === currentClient.cedula) {
+                    if (tarjeta.cedula === currentClient.cedula) {
                         const color = coloresAdicionales[index % coloresAdicionales.length];
                         const cardItem = createCardItem(tarjeta, 'aditional', color);
                         container.appendChild(cardItem);
