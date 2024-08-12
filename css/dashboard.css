@@ -331,3 +331,7 @@ canvas {
   margin-top: auto; /* Empuja el botón hacia el fondo del sidebar */
   margin-bottom: 15%;
 }
+
+.fecha{
+  margin-left: 10px !important; 
+}

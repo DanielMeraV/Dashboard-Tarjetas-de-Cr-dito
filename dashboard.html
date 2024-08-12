@@ -110,7 +110,7 @@
                     cardTop.classList.add('card-top');
                     const balance = document.createElement('div');
                     balance.classList.add('balance');
-                    balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.Saldo}</h2>`;
+                    balance.innerHTML = `<span>SALDO</span><h2 class="monto">$${tarjeta.saldo}</h2>`;
                     const chip = document.createElement('img');
                     chip.src = 'img/chip.png';
                     chip.alt = 'Card chip';
@@ -127,7 +127,7 @@
                         </div>
                         <div class="valid-thru">
                             <span>FECHA EXP</span>
-                            <h3 class="fecha">12/22</h3>
+                            <h3 class="fecha">${tarjeta.fecha_expiracion}</h3>
                         </div>
                     `;
 
@@ -244,7 +244,7 @@
                     const filteredTransactions = transactions.filter(transaction => transaction.tarjeta === tarjetaNumero);
 
                    // Ordenar transacciones por fecha
-                   filteredTransactions.sort((a, b) => new Date(a.Fecha) - new Date(b.Fecha));
+                   filteredTransactions.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
 
 
                     // Actualizar actividades

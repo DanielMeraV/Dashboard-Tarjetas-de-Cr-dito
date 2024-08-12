@@ -15,12 +15,30 @@ console.log(JSON.parse(localStorage.getItem('historial-crediticio')));
 
 // Función para guardar datos en localStorage
 function storeData(type, data) {
-    localStorage.setItem(type, JSON.stringify(data));
+    try {
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem(type, JSON.stringify(data));
+        } else {
+            console.error('LocalStorage no está disponible.');
+        }
+    } catch (e) {
+        console.error('Error al guardar en localStorage:', e);
+    }
 }
 
 // Función para cargar datos desde localStorage
 function loadData(type) {
-    return JSON.parse(localStorage.getItem(type));
+    try {
+        if (typeof(Storage) !== "undefined") {
+            return JSON.parse(localStorage.getItem(type)) || [];
+        } else {
+            console.error('LocalStorage no está disponible.');
+            return [];
+        }
+    } catch (e) {
+        console.error('Error al cargar desde localStorage:', e);
+        return [];
+    }
 }
 
 
@@ -108,6 +126,7 @@ function processCSVData(data, type) {
             processedData = data.map(row => ({
                 cedula: row['Cedula'],
                 Numero: row['Numero'],
+                tipo: row['Tipo'],
                 fecha_emision: row['FechaEmision'],
                 fecha_expiracion: row['FechaExpiracion'],
                 saldo: row['Saldo'],
@@ -123,6 +142,7 @@ function processCSVData(data, type) {
             processedData = data.map(row => ({
                 cedula: row['Cedula'],
                 Numero: row['Numero'],
+                tipo: row['Tipo'],
                 fecha_emision: row['FechaEmision'],
                 fecha_expiracion: row['FechaExpiracion'],
                 saldo: row['Saldo'],
@@ -163,7 +183,7 @@ window.onload = function() {
 
 // Cargar automáticamente los csv al inicio
 function loadDefaultCSVs() {
-    const csvFolder = 'csv/';  // Ruta relativa a la carpeta CSV
+    const csvFolder = 'csv/';
     const csvFiles = {
         'clientes': 'clientes.csv',
         'tarjetas-principales': 'tarjetas_principales.csv',
@@ -180,6 +200,7 @@ function loadDefaultCSVs() {
         }
     }
 }
+
 
 function fetchCSV(filePath, type) {
     fetch(filePath)
@@ -200,9 +221,10 @@ function fetchCSV(filePath, type) {
             });
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error al procesar el CSV:', error);
         });
 }
+
 
 
 // Función para manejar el arrastre de archivos
